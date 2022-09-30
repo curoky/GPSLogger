@@ -2,7 +2,7 @@
 //  GPSLoggerUITestsLaunchTests.swift
 //  GPSLoggerUITests
 //
-//  Created by cicada on 2022/9/30.
+//  Created by curoky on 2022/9/30.
 //
 
 import XCTest

@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  GPSLogger
 //
-//  Created by cicada on 2022/9/30.
+//  Created by curoky on 2022/9/30.
 //
 
 import UIKit
@@ -52,4 +52,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
 }
-
