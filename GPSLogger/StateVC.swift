@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  StateVC.swift
 //  GPSLogger
 //
 //  Created by curoky on 2022/9/30.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class StateVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
