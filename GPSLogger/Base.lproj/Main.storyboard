@@ -31,14 +31,64 @@
                     <view key="view" contentMode="scaleToFill" id="gyD-1U-KHA">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="241" translatesAutoresizingMaskIntoConstraints="NO" id="9Wd-Ug-eSn">
+                                <rect key="frame" x="15" y="62" width="360" height="684"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vwC-IM-GMf">
+                                        <rect key="frame" x="0.0" y="0.0" width="360" height="408.66666666666669"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h0i-DM-zBB">
+                                        <rect key="frame" x="84.666666666666671" y="649.66666666666663" width="190.66666666666663" height="34.333333333333371"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1D6-5S-1wW">
+                                                <rect key="frame" x="0.0" y="0.0" width="95.333333333333329" height="34.333333333333336"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="FetchLog"/>
+                                                <connections>
+                                                    <action selector="fetchLogClicked:" destination="9oF-fL-ZMg" eventType="touchUpInside" id="6h6-4a-8ZU"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q5e-BC-gk4">
+                                                <rect key="frame" x="95.333333333333343" y="0.0" width="95.333333333333343" height="34.333333333333336"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Export"/>
+                                                <connections>
+                                                    <action selector="exportClicked:" destination="9oF-fL-ZMg" eventType="touchUpInside" id="SSC-cM-Hgz"/>
+                                                    <action selector="exportDataClicked:" destination="qCA-jM-kpg" eventType="touchUpInside" id="RX6-xp-B4Z"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="vwC-IM-GMf" firstAttribute="leading" secondItem="9Wd-Ug-eSn" secondAttribute="leadingMargin" id="29P-oI-zYZ"/>
+                                    <constraint firstItem="h0i-DM-zBB" firstAttribute="top" secondItem="vwC-IM-GMf" secondAttribute="bottom" constant="10" id="dy8-7n-VEM"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Oy2-Uf-1v5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9Wd-Ug-eSn" firstAttribute="top" secondItem="Oy2-Uf-1v5" secondAttribute="top" constant="15" id="0QL-cJ-CLy"/>
+                            <constraint firstItem="9Wd-Ug-eSn" firstAttribute="leading" secondItem="Oy2-Uf-1v5" secondAttribute="leading" constant="15" id="85s-l2-NIB"/>
+                            <constraint firstItem="9Wd-Ug-eSn" firstAttribute="centerY" secondItem="Oy2-Uf-1v5" secondAttribute="centerY" id="R7q-h4-Jnb"/>
+                            <constraint firstItem="9Wd-Ug-eSn" firstAttribute="centerX" secondItem="Oy2-Uf-1v5" secondAttribute="centerX" id="zLh-DE-TN7"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="u5O-1h-nyW"/>
+                    <connections>
+                        <outlet property="logTextView" destination="vwC-IM-GMf" id="pm1-sc-HBY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A2W-r6-6c5" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="649" y="773"/>
+            <point key="canvasLocation" x="644.61538461538464" y="772.74881516587675"/>
         </scene>
         <!--Item-->
         <scene sceneID="UTy-yf-81Y">
@@ -54,7 +104,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0d8-Rx-3Sq" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1438" y="773"/>
+            <point key="canvasLocation" x="1436.9230769230769" y="772.74881516587675"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Y7D-sM-lab">
@@ -62,21 +112,25 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="E4T-hr-s4X" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="suL-NV-D1I">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="oKe-j1-mGN"/>
-                        <segue destination="9oF-fL-ZMg" kind="relationship" relationship="viewControllers" id="Wp0-I2-hBx"/>
+                        <segue destination="9oF-fL-ZMg" kind="relationship" relationship="viewControllers" id="aGS-i5-1sJ"/>
                         <segue destination="qCA-jM-kpg" kind="relationship" relationship="viewControllers" id="kam-ex-V6m"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="oKe-j1-mGN"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vis-f9-70C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="21.538461538461537" y="3.5545023696682461"/>
+            <point key="canvasLocation" x="111" y="-160"/>
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
