@@ -23,7 +23,13 @@
 	</dict>
 	<key>UIBackgroundModes</key>
 	<array>
-		<string>remote-notification</string>
+		<string>location</string>
 	</array>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Please I need this.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Please I need this.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Please I need this.</string>
 </dict>
 </plist>
