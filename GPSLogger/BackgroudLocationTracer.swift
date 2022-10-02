@@ -1,19 +1,30 @@
-//
-//  BackgroudLocationTracer.swift
-//  GPSLogger
-//
-//  Created by curoky on 2022/10/1.
-//
+/*
+ * Copyright (c) 2022-2022 curoky(cccuroky@gmail.com).
+ *
+ * This file is part of GPSLogger.
+ * See https://github.com/curoky/GPSLogger for further info.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
-import Foundation
 import CoreData
 import CoreLocation
+import Foundation
 
-typealias Listener = (CLLocation) -> ()
+typealias Listener = (CLLocation) -> Void
 
 class BackgroudLocationTracer: NSObject {
-
-    var locationManager =  CLLocationManager()
+    var locationManager = CLLocationManager()
 
     func startMonitoring() {
         locationManager.requestAlwaysAuthorization()
@@ -28,28 +39,28 @@ class BackgroudLocationTracer: NSObject {
 }
 
 extension BackgroudLocationTracer: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         var res = "=>|"
         for loc in locations {
             res.append("""
-timestamp=\(loc.timestamp),\
-speed=\(loc.speed),\
-latitude=\(loc.coordinate.latitude),\
-longitude=\(loc.coordinate.longitude),\
-altitude=\(loc.altitude),\
-course=\(loc.course),\
-speedAccuracy=\(loc.speedAccuracy),\
-ellipsoidalAltitude=\(loc.ellipsoidalAltitude),\
-horizontalAccuracy=\(loc.horizontalAccuracy),\
-verticalAccuracy=\(loc.verticalAccuracy),\
-courseAccuracy=\(loc.courseAccuracy)|
-""")
+            timestamp=\(loc.timestamp),\
+            speed=\(loc.speed),\
+            latitude=\(loc.coordinate.latitude),\
+            longitude=\(loc.coordinate.longitude),\
+            altitude=\(loc.altitude),\
+            course=\(loc.course),\
+            speedAccuracy=\(loc.speedAccuracy),\
+            ellipsoidalAltitude=\(loc.ellipsoidalAltitude),\
+            horizontalAccuracy=\(loc.horizontalAccuracy),\
+            verticalAccuracy=\(loc.verticalAccuracy),\
+            courseAccuracy=\(loc.courseAccuracy)|
+            """)
         }
 //        GPSLogHelper.shared.log(message: String(locations.description))
         GPSLogHelper.shared.log(message: res)
     }
 
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    func locationManager(_: CLLocationManager, didFailWithError error: Error) {
         print(error)
     }
 }
