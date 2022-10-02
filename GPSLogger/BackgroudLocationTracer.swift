@@ -32,19 +32,18 @@ extension BackgroudLocationTracer: CLLocationManagerDelegate {
         var res = "=>|"
         for loc in locations {
             res.append("""
+timestamp=\(loc.timestamp),\
+speed=\(loc.speed),\
 latitude=\(loc.coordinate.latitude),\
 longitude=\(loc.coordinate.longitude),\
 altitude=\(loc.altitude),\
+course=\(loc.course),\
+speedAccuracy=\(loc.speedAccuracy),\
 ellipsoidalAltitude=\(loc.ellipsoidalAltitude),\
 horizontalAccuracy=\(loc.horizontalAccuracy),\
 verticalAccuracy=\(loc.verticalAccuracy),\
-course=\(loc.course),\
-courseAccuracy=\(loc.courseAccuracy),\
-speed=\(loc.speed),\
-speedAccuracy=\(loc.speedAccuracy),\
-timestamp=\(loc.timestamp)
+courseAccuracy=\(loc.courseAccuracy)|
 """)
-            res.append("|")
         }
 //        GPSLogHelper.shared.log(message: String(locations.description))
         GPSLogHelper.shared.log(message: res)

@@ -19,9 +19,9 @@ class GPSLogHelper: NSObject {
     func log(message: String) {
         bufferLock.lock()
         defer { bufferLock.unlock() }
-        
-        print("GPSLogHelper:log: \(message), size:\(messageBuffer.count)")
-        messageBuffer.append(message+"\n")
+
+//        print("GPSLogHelper:log: \(message), size:\(messageBuffer.count)")
+        messageBuffer.append(message + "size:\(messageBuffer.count)\n")
         if messageBuffer.count > 100 {
             let fileHandle = FileHandle(forWritingAtPath: logFilePath)!
             fileHandle.seekToEndOfFile()
