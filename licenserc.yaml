@@ -1,0 +1,52 @@
+header:
+  license:
+    spdx-id: Apache-2.0
+    copyright-owner: curoky(cccuroky@gmail.com).
+
+  paths: # <6>
+    - 'algorithm/**'
+    - 'app/**'
+    - 'cpp/**'
+    - 'design-pattern/**'
+    - 'app/**'
+    - 'go/**'
+    - 'java/**'
+    - 'js/**'
+    - 'ML/**'
+    - 'python/**'
+    - 'rust/**'
+    - 'script/**'
+    - 'shell/**'
+    - '**/CMakeLists.txt'
+    - '**/*.cmake'
+
+  paths-ignore:
+    - 'bazel-*/**'
+    - 'serialization/**'
+    - 'external/**'
+    - '**/*.conf'
+    - '**/*.ipynb'
+    - '**/*.json'
+    - '**/*.log'
+    - '**/*.lst'
+    - '**/*.md'
+    - '**/*.properties'
+    - '**/*.thrift'
+    - '**/*.xml'
+    - '**/*.yaml'
+    - '**/*.yml'
+    - '**/*.gradle'
+    - '**/*.toml'
+    - '**/*.fbs'
+    - '**/*.mod'
+    - '**/*.sum'
+    - '**/Dockerfile'
+    - '**/Makefile'
+
+  language:
+    Go:
+      extensions:
+        - '.go'
+      comment_style_id: SlashAsterisk
+
+  comment: never # on-failure
