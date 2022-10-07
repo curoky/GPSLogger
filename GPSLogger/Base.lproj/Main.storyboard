@@ -50,7 +50,6 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="vwC-IM-GMf" firstAttribute="leading" secondItem="9Wd-Ug-eSn" secondAttribute="leadingMargin" id="29P-oI-zYZ"/>
-                                    <constraint firstItem="h0i-DM-zBB" firstAttribute="top" secondItem="vwC-IM-GMf" secondAttribute="bottom" constant="10" id="dy8-7n-VEM"/>
                                 </constraints>
                             </stackView>
                         </subviews>
