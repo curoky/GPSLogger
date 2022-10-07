@@ -33,7 +33,7 @@ class GPSLogHelper: NSObject {
 
 //        print("GPSLogHelper:log: \(message), size:\(messageBuffer.count)")
         messageBuffer.append(message + "size:\(messageBuffer.count)\n")
-        if messageBuffer.count > 100 {
+        if messageBuffer.count > 20 {
             let fileHandle = FileHandle(forWritingAtPath: logFilePath)!
             fileHandle.seekToEndOfFile()
             for m in messageBuffer {
@@ -47,7 +47,6 @@ class GPSLogHelper: NSObject {
     // Make sure the class has only one instance
     // Should not init or copy outside
     override private init() {
-        messageBuffer.reserveCapacity(100)
         print("init: \(logFilePath)")
         if !FileManager.default.fileExists(atPath: logFilePath) {
             FileManager.default.createFile(atPath: logFilePath, contents: "File created at:  \(ISO8601DateFormatter().string(from: Date()))\n\n".data(using: .utf8))
