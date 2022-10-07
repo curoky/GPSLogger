@@ -27,16 +27,3 @@ repos:
     rev: '0.50.0'
     hooks:
       - id: swiftformat
-  - repo: https://github.com/johann-petrak/licenseheaders
-    rev: 'v0.8.8'
-    hooks:
-      - id: licenseheaders
-        types_or: [swift, python, shell]
-        args:
-          - '--tmpl=apache-2.tmpl'
-          - '--owner=curoky(cccuroky@gmail.com)'
-          # - '--settings=config/codestyle/license-settings.json'
-          - '--projname=GPSLogger'
-          - '--projurl=https://github.com/curoky/GPSLogger'
-          - '--years=2022-2022'
-          - '--files'
