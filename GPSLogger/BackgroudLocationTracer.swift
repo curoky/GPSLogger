@@ -32,7 +32,7 @@ class BackgroudLocationTracer: NSObject {
         locationManager.pausesLocationUpdatesAutomatically = false
         locationManager.allowsBackgroundLocationUpdates = true
         locationManager.showsBackgroundLocationIndicator = false
-        locationManager.distanceFilter = 50
+        locationManager.distanceFilter = 100
         locationManager.startUpdatingLocation()
         locationManager.delegate = self
     }
