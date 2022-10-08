@@ -2,7 +2,7 @@
 # Copyright (c) 2022-2022 curoky(cccuroky@gmail.com).
 #
 # This file is part of GPSLogger.
-# See https://github.com/curoky/GPSLogger.git for further info.
+# See https://github.com/curoky/GPSLogger for further info.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -73,5 +73,5 @@ def main(logPath: Path, gpxPath: Path):
 
 
 if __name__ == '__main__':
-    main(Path.home() / 'repos/backup/gpx/gpslogger.txt',
-         Path.home() / 'repos/backup/gpx/gpslogger.gpx')
+    main(Path.home() / 'repos/backup/gpx/tracer/gps.log.txt',
+         Path.home() / 'repos/backup/gpx/tracer/gps.log.gpx')
