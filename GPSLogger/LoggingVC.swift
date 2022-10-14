@@ -17,6 +17,8 @@
  * limitations under the License.
  */
 
+import CoreGPX
+import CoreLocation
 import UIKit
 
 class LoggingVC: UIViewController {
@@ -32,14 +34,56 @@ class LoggingVC: UIViewController {
         logTextView.text = GPSLogHelper.shared.tailfLog()
     }
 
-    @IBAction func exportClicked(_: Any) {
-        var filesToShare = [Any]()
-        filesToShare.append(URL(filePath: GPSLogHelper.shared.logFilePath))
+    @IBAction func exportGPXClicked(_: Any) {
+        let content = try! String(contentsOfFile: GPSLogHelper.shared.logFilePath)
+        let data = content.split(separator: "\n")
+            .filter { $0.starts(with: "=>|") }
+            .map {
+                $0.split(separator: "|")[1]
+                    .split(separator: ",")
+                    .map { $0.split(separator: "=") }
+            }
+        print("count=\(data.count)")
 
-        // Make the activityViewContoller which shows the share-view
-        let activityViewController = UIActivityViewController(activityItems: filesToShare, applicationActivities: nil)
-        // Show the share-view
-        present(activityViewController, animated: true, completion: nil)
+        let root = GPXRoot(creator: "GPSLogger!")
+        let track = GPXTrack()
+        let tracksegment = track.newTrackSegment()
+        root.add(track: track)
+
+        for l in data {
+            let dateformater = DateFormatter()
+            dateformater.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
+            let tp = tracksegment.newTrackpointWith(latitude: 0, longitude: 0)
+
+            for kv in l {
+                switch kv[0] {
+                case "latitude": tp.latitude = Double(kv[1])
+
+                case "longitude": tp.longitude = Double(kv[1])
+                case "altitude": tp.elevation = Double(kv[1])
+//                case "course": trackpoint.
+//                case "speed": trackpoint.
+                case "timestamp": tp.time = dateformater.date(from: String(kv[1]))
+                default: continue
+                }
+            }
+        }
+
+        let url = FileManager.default.temporaryDirectory
+            .appendingPathComponent("GPSLogger")
+            .appendingPathExtension("gpx")
+        try! root.gpx().write(to: url, atomically: true, encoding: .utf8)
+
+        present(UIActivityViewController(activityItems: [url], applicationActivities: nil),
+                animated: true, completion: nil)
+    }
+
+    @IBAction func exportLogClicked(_: Any) {
+        present(UIActivityViewController(
+            activityItems: [URL(filePath: GPSLogHelper.shared.logFilePath)],
+            applicationActivities: nil
+        ),
+        animated: true, completion: nil)
     }
     /*
      // MARK: - Navigation

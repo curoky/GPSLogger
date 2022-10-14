@@ -27,10 +27,10 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h0i-DM-zBB">
-                                        <rect key="frame" x="84.666666666666671" y="698.66666666666663" width="190.66666666666663" height="34.333333333333371"/>
+                                        <rect key="frame" x="13" y="698.66666666666663" width="334" height="34.333333333333371"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1D6-5S-1wW">
-                                                <rect key="frame" x="0.0" y="0.0" width="95.333333333333329" height="34.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="111.33333333333333" height="34.333333333333336"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="FetchLog"/>
                                                 <connections>
@@ -38,11 +38,19 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q5e-BC-gk4">
-                                                <rect key="frame" x="95.333333333333343" y="0.0" width="95.333333333333343" height="34.333333333333336"/>
+                                                <rect key="frame" x="111.33333333333334" y="0.0" width="111.33333333333334" height="34.333333333333336"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Export"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Export log"/>
                                                 <connections>
-                                                    <action selector="exportClicked:" destination="9oF-fL-ZMg" eventType="touchUpInside" id="SSC-cM-Hgz"/>
+                                                    <action selector="exportLogClicked:" destination="9oF-fL-ZMg" eventType="touchUpInside" id="LTH-ln-NZL"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="orm-ik-vB8">
+                                                <rect key="frame" x="222.66666666666666" y="0.0" width="111.33333333333334" height="34.333333333333336"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Export GPX"/>
+                                                <connections>
+                                                    <action selector="exportGPXClicked:" destination="9oF-fL-ZMg" eventType="touchUpInside" id="WeF-ya-H3c"/>
                                                 </connections>
                                             </button>
                                         </subviews>
