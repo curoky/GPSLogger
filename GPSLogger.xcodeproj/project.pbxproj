@@ -18,6 +18,8 @@
 		3B13D17E28E736A800EB3B1D /* GPSLoggerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B13D17D28E736A800EB3B1D /* GPSLoggerUITestsLaunchTests.swift */; };
 		3B13D18B28E7380D00EB3B1D /* LoggingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B13D18A28E7380D00EB3B1D /* LoggingVC.swift */; };
 		3B77B14D28E7E32A00EF2D22 /* BackgroudLocationTracer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B77B14C28E7E32A00EF2D22 /* BackgroudLocationTracer.swift */; };
+		3B8FC51228F9A7BD00D74FDC /* CoreGPX.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B8FC51128F9A7BD00D74FDC /* CoreGPX.xcframework */; };
+		3B8FC51328F9A7BD00D74FDC /* CoreGPX.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3B8FC51128F9A7BD00D74FDC /* CoreGPX.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3BA9B66D28E8130B00FA4BAD /* GPSLogHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA9B66C28E8130B00FA4BAD /* GPSLogHelper.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +40,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		3B8FC51428F9A7BD00D74FDC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3B8FC51328F9A7BD00D74FDC /* CoreGPX.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		3B13D15428E736A800EB3B1D /* GPSLogger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPSLogger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B13D15728E736A800EB3B1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +70,7 @@
 		3B13D17D28E736A800EB3B1D /* GPSLoggerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSLoggerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3B13D18A28E7380D00EB3B1D /* LoggingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingVC.swift; sourceTree = "<group>"; };
 		3B77B14C28E7E32A00EF2D22 /* BackgroudLocationTracer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroudLocationTracer.swift; sourceTree = "<group>"; };
+		3B8FC51128F9A7BD00D74FDC /* CoreGPX.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = CoreGPX.xcframework; path = Carthage/Build/CoreGPX.xcframework; sourceTree = "<group>"; };
 		3BA9B66C28E8130B00FA4BAD /* GPSLogHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSLogHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B8FC51228F9A7BD00D74FDC /* CoreGPX.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +107,7 @@
 				3B13D17028E736A800EB3B1D /* GPSLoggerTests */,
 				3B13D17A28E736A800EB3B1D /* GPSLoggerUITests */,
 				3B13D15528E736A800EB3B1D /* Products */,
+				3B8FC51028F9A7BD00D74FDC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -136,6 +155,14 @@
 			path = GPSLoggerUITests;
 			sourceTree = "<group>";
 		};
+		3B8FC51028F9A7BD00D74FDC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3B8FC51128F9A7BD00D74FDC /* CoreGPX.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,6 +173,7 @@
 				3B13D15028E736A800EB3B1D /* Sources */,
 				3B13D15128E736A800EB3B1D /* Frameworks */,
 				3B13D15228E736A800EB3B1D /* Resources */,
+				3B8FC51428F9A7BD00D74FDC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
