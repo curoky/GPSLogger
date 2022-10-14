@@ -26,8 +26,6 @@ class LoggingVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     @IBAction func fetchLogClicked(_: Any) {
@@ -35,7 +33,7 @@ class LoggingVC: UIViewController {
     }
 
     @IBAction func exportGPXClicked(_: Any) {
-        let content = try! String(contentsOfFile: GPSLogHelper.shared.logFilePath)
+        let content = try! String(contentsOfFile: GPSLogHelper.shared.logFilePath, encoding: .utf8)
         let data = content.split(separator: "\n")
             .filter { $0.starts(with: "=>|") }
             .map {
@@ -54,15 +52,11 @@ class LoggingVC: UIViewController {
             let dateformater = DateFormatter()
             dateformater.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
             let tp = tracksegment.newTrackpointWith(latitude: 0, longitude: 0)
-
             for kv in l {
                 switch kv[0] {
                 case "latitude": tp.latitude = Double(kv[1])
-
                 case "longitude": tp.longitude = Double(kv[1])
                 case "altitude": tp.elevation = Double(kv[1])
-//                case "course": trackpoint.
-//                case "speed": trackpoint.
                 case "timestamp": tp.time = dateformater.date(from: String(kv[1]))
                 default: continue
                 }
@@ -85,13 +79,4 @@ class LoggingVC: UIViewController {
         ),
         animated: true, completion: nil)
     }
-    /*
-     // MARK: - Navigation
-
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         // Get the new view controller using segue.destination.
-         // Pass the selected object to the new view controller.
-     }
-     */
 }
