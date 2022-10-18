@@ -22,11 +22,9 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var backgroudLocationTracer = BackgroudLocationTracer()
-
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        backgroudLocationTracer.startMonitoring()
+        BackgroudLocationTracer.shared.startMonitoring()
         return true
     }
 

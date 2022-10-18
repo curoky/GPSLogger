@@ -24,6 +24,8 @@ import Foundation
 typealias Listener = (CLLocation) -> Void
 
 class BackgroudLocationTracer: NSObject {
+    static let shared = BackgroudLocationTracer()
+
     var locationManager = CLLocationManager()
 
     func startMonitoring() {
