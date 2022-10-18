@@ -27,6 +27,7 @@ class BackgroudLocationTracer: NSObject {
     static let shared = BackgroudLocationTracer()
 
     var locationManager = CLLocationManager()
+    var tracerMode = 0
 
     func startMonitoring() {
         locationManager.requestAlwaysAuthorization()
@@ -34,9 +35,24 @@ class BackgroudLocationTracer: NSObject {
         locationManager.pausesLocationUpdatesAutomatically = false
         locationManager.allowsBackgroundLocationUpdates = true
         locationManager.showsBackgroundLocationIndicator = false
-        locationManager.distanceFilter = 100
-        locationManager.startUpdatingLocation()
+        locationManager.distanceFilter = 50
+        locationManager.startMonitoringSignificantLocationChanges()
         locationManager.delegate = self
+    }
+
+    func switchTracerMode() {
+        tracerMode ^= 1
+        if tracerMode == 1 {
+            GPSLogHelper.shared.log(message: "before: startUpdatingLocation")
+            locationManager.stopMonitoringSignificantLocationChanges()
+            locationManager.startUpdatingLocation()
+            GPSLogHelper.shared.log(message: "after: startUpdatingLocation")
+        } else {
+            GPSLogHelper.shared.log(message: "before: startMonitoringSignificantLocationChanges")
+            locationManager.stopUpdatingLocation()
+            locationManager.startMonitoringSignificantLocationChanges()
+            GPSLogHelper.shared.log(message: "after: startMonitoringSignificantLocationChanges")
+        }
     }
 }
 
