@@ -79,4 +79,12 @@ class LoggingVC: UIViewController {
         ),
         animated: true, completion: nil)
     }
+
+    @IBAction func switchModeClicked(_: Any) {
+        BackgroudLocationTracer.shared.switchTracerMode()
+    }
+
+    @IBAction func flushLogClicked(_: Any) {
+        GPSLogHelper.shared.flushLogThreadSafe()
+    }
 }
