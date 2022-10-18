@@ -32,15 +32,25 @@ class GPSLogHelper: NSObject {
         defer { bufferLock.unlock() }
 
         messageBuffer.append(message + "size:\(messageBuffer.count)\n")
-        if messageBuffer.count > 20 {
-            let fileHandle = FileHandle(forWritingAtPath: logFilePath)!
-            fileHandle.seekToEndOfFile()
-            for m in messageBuffer {
-                fileHandle.write(m.data(using: .utf8)!)
-            }
-            try! fileHandle.close()
-            messageBuffer.removeAll(keepingCapacity: true)
+        if messageBuffer.count > 50 {
+            flushLog()
         }
+    }
+
+    func flushLog() {
+        let fileHandle = FileHandle(forWritingAtPath: logFilePath)!
+        fileHandle.seekToEndOfFile()
+        for m in messageBuffer {
+            fileHandle.write(m.data(using: .utf8)!)
+        }
+        try! fileHandle.close()
+        messageBuffer.removeAll(keepingCapacity: true)
+    }
+
+    func flushLogThreadSafe() {
+        bufferLock.lock()
+        defer { bufferLock.unlock() }
+        flushLog()
     }
 
     override private init() {
