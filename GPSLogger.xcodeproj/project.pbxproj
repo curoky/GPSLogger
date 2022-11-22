@@ -7,90 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B13D15828E736A800EB3B1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B13D15728E736A800EB3B1D /* AppDelegate.swift */; };
-		3B13D15A28E736A800EB3B1D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B13D15928E736A800EB3B1D /* SceneDelegate.swift */; };
-		3B13D15F28E736A800EB3B1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B13D15D28E736A800EB3B1D /* Main.storyboard */; };
-		3B13D16228E736A800EB3B1D /* GPSLogger.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3B13D16028E736A800EB3B1D /* GPSLogger.xcdatamodeld */; };
-		3B13D16428E736A800EB3B1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B13D16328E736A800EB3B1D /* Assets.xcassets */; };
-		3B13D16728E736A800EB3B1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B13D16528E736A800EB3B1D /* LaunchScreen.storyboard */; };
-		3B13D17228E736A800EB3B1D /* GPSLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B13D17128E736A800EB3B1D /* GPSLoggerTests.swift */; };
-		3B13D17C28E736A800EB3B1D /* GPSLoggerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B13D17B28E736A800EB3B1D /* GPSLoggerUITests.swift */; };
-		3B13D17E28E736A800EB3B1D /* GPSLoggerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B13D17D28E736A800EB3B1D /* GPSLoggerUITestsLaunchTests.swift */; };
-		3B13D18B28E7380D00EB3B1D /* LoggingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B13D18A28E7380D00EB3B1D /* LoggingVC.swift */; };
-		3B77B14D28E7E32A00EF2D22 /* BackgroudLocationTracer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B77B14C28E7E32A00EF2D22 /* BackgroudLocationTracer.swift */; };
-		3B8FC51228F9A7BD00D74FDC /* CoreGPX.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B8FC51128F9A7BD00D74FDC /* CoreGPX.xcframework */; };
-		3B8FC51328F9A7BD00D74FDC /* CoreGPX.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3B8FC51128F9A7BD00D74FDC /* CoreGPX.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3BA9B66D28E8130B00FA4BAD /* GPSLogHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA9B66C28E8130B00FA4BAD /* GPSLogHelper.swift */; };
+		3BD3098C292D2D690059BEDC /* GPSLoggerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD3098B292D2D690059BEDC /* GPSLoggerApp.swift */; };
+		3BD3098E292D2D690059BEDC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD3098D292D2D690059BEDC /* ContentView.swift */; };
+		3BD30990292D2D6A0059BEDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BD3098F292D2D6A0059BEDC /* Assets.xcassets */; };
+		3BD30993292D2D6A0059BEDC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BD30992292D2D6A0059BEDC /* Preview Assets.xcassets */; };
+		3BD30995292D2D6A0059BEDC /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD30994292D2D6A0059BEDC /* Persistence.swift */; };
+		3BD30998292D2D6A0059BEDC /* GPSLogger.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3BD30996292D2D6A0059BEDC /* GPSLogger.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		3B13D16E28E736A800EB3B1D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3B13D14C28E736A700EB3B1D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3B13D15328E736A800EB3B1D;
-			remoteInfo = GPSLogger;
-		};
-		3B13D17828E736A800EB3B1D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3B13D14C28E736A700EB3B1D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3B13D15328E736A800EB3B1D;
-			remoteInfo = GPSLogger;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		3B8FC51428F9A7BD00D74FDC /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				3B8FC51328F9A7BD00D74FDC /* CoreGPX.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		3B13D15428E736A800EB3B1D /* GPSLogger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPSLogger.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B13D15728E736A800EB3B1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3B13D15928E736A800EB3B1D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3B13D15E28E736A800EB3B1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3B13D16128E736A800EB3B1D /* GPSLogger.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GPSLogger.xcdatamodel; sourceTree = "<group>"; };
-		3B13D16328E736A800EB3B1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3B13D16628E736A800EB3B1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		3B13D16828E736A800EB3B1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3B13D16D28E736A800EB3B1D /* GPSLoggerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GPSLoggerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B13D17128E736A800EB3B1D /* GPSLoggerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSLoggerTests.swift; sourceTree = "<group>"; };
-		3B13D17728E736A800EB3B1D /* GPSLoggerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GPSLoggerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B13D17B28E736A800EB3B1D /* GPSLoggerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSLoggerUITests.swift; sourceTree = "<group>"; };
-		3B13D17D28E736A800EB3B1D /* GPSLoggerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSLoggerUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		3B13D18A28E7380D00EB3B1D /* LoggingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingVC.swift; sourceTree = "<group>"; };
-		3B77B14C28E7E32A00EF2D22 /* BackgroudLocationTracer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroudLocationTracer.swift; sourceTree = "<group>"; };
-		3B8FC51128F9A7BD00D74FDC /* CoreGPX.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = CoreGPX.xcframework; path = Carthage/Build/CoreGPX.xcframework; sourceTree = "<group>"; };
-		3BA9B66C28E8130B00FA4BAD /* GPSLogHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSLogHelper.swift; sourceTree = "<group>"; };
+		3BD30988292D2D690059BEDC /* GPSLogger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPSLogger.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BD3098B292D2D690059BEDC /* GPSLoggerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSLoggerApp.swift; sourceTree = "<group>"; };
+		3BD3098D292D2D690059BEDC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3BD3098F292D2D6A0059BEDC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3BD30992292D2D6A0059BEDC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3BD30994292D2D6A0059BEDC /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		3BD30997292D2D6A0059BEDC /* GPSLogger.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GPSLogger.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3B13D15128E736A800EB3B1D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3B8FC51228F9A7BD00D74FDC /* CoreGPX.xcframework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3B13D16A28E736A800EB3B1D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3B13D17428E736A800EB3B1D /* Frameworks */ = {
+		3BD30985292D2D690059BEDC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -100,80 +36,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3B13D14B28E736A700EB3B1D = {
+		3BD3097F292D2D690059BEDC = {
 			isa = PBXGroup;
 			children = (
-				3B13D15628E736A800EB3B1D /* GPSLogger */,
-				3B13D17028E736A800EB3B1D /* GPSLoggerTests */,
-				3B13D17A28E736A800EB3B1D /* GPSLoggerUITests */,
-				3B13D15528E736A800EB3B1D /* Products */,
-				3B8FC51028F9A7BD00D74FDC /* Frameworks */,
+				3BD3098A292D2D690059BEDC /* GPSLogger */,
+				3BD30989292D2D690059BEDC /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		3B13D15528E736A800EB3B1D /* Products */ = {
+		3BD30989292D2D690059BEDC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3B13D15428E736A800EB3B1D /* GPSLogger.app */,
-				3B13D16D28E736A800EB3B1D /* GPSLoggerTests.xctest */,
-				3B13D17728E736A800EB3B1D /* GPSLoggerUITests.xctest */,
+				3BD30988292D2D690059BEDC /* GPSLogger.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3B13D15628E736A800EB3B1D /* GPSLogger */ = {
+		3BD3098A292D2D690059BEDC /* GPSLogger */ = {
 			isa = PBXGroup;
 			children = (
-				3B13D15728E736A800EB3B1D /* AppDelegate.swift */,
-				3B13D15928E736A800EB3B1D /* SceneDelegate.swift */,
-				3B13D18A28E7380D00EB3B1D /* LoggingVC.swift */,
-				3B77B14C28E7E32A00EF2D22 /* BackgroudLocationTracer.swift */,
-				3BA9B66C28E8130B00FA4BAD /* GPSLogHelper.swift */,
-				3B13D15D28E736A800EB3B1D /* Main.storyboard */,
-				3B13D16528E736A800EB3B1D /* LaunchScreen.storyboard */,
-				3B13D16328E736A800EB3B1D /* Assets.xcassets */,
-				3B13D16828E736A800EB3B1D /* Info.plist */,
-				3B13D16028E736A800EB3B1D /* GPSLogger.xcdatamodeld */,
+				3BD3098B292D2D690059BEDC /* GPSLoggerApp.swift */,
+				3BD3098D292D2D690059BEDC /* ContentView.swift */,
+				3BD3098F292D2D6A0059BEDC /* Assets.xcassets */,
+				3BD30994292D2D6A0059BEDC /* Persistence.swift */,
+				3BD30996292D2D6A0059BEDC /* GPSLogger.xcdatamodeld */,
+				3BD30991292D2D6A0059BEDC /* Preview Content */,
 			);
 			path = GPSLogger;
 			sourceTree = "<group>";
 		};
-		3B13D17028E736A800EB3B1D /* GPSLoggerTests */ = {
+		3BD30991292D2D6A0059BEDC /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				3B13D17128E736A800EB3B1D /* GPSLoggerTests.swift */,
+				3BD30992292D2D6A0059BEDC /* Preview Assets.xcassets */,
 			);
-			path = GPSLoggerTests;
-			sourceTree = "<group>";
-		};
-		3B13D17A28E736A800EB3B1D /* GPSLoggerUITests */ = {
-			isa = PBXGroup;
-			children = (
-				3B13D17B28E736A800EB3B1D /* GPSLoggerUITests.swift */,
-				3B13D17D28E736A800EB3B1D /* GPSLoggerUITestsLaunchTests.swift */,
-			);
-			path = GPSLoggerUITests;
-			sourceTree = "<group>";
-		};
-		3B8FC51028F9A7BD00D74FDC /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				3B8FC51128F9A7BD00D74FDC /* CoreGPX.xcframework */,
-			);
-			name = Frameworks;
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3B13D15328E736A800EB3B1D /* GPSLogger */ = {
+		3BD30987292D2D690059BEDC /* GPSLogger */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3B13D18128E736A800EB3B1D /* Build configuration list for PBXNativeTarget "GPSLogger" */;
+			buildConfigurationList = 3BD3099B292D2D6A0059BEDC /* Build configuration list for PBXNativeTarget "GPSLogger" */;
 			buildPhases = (
-				3B13D15028E736A800EB3B1D /* Sources */,
-				3B13D15128E736A800EB3B1D /* Frameworks */,
-				3B13D15228E736A800EB3B1D /* Resources */,
-				3B8FC51428F9A7BD00D74FDC /* Embed Frameworks */,
+				3BD30984292D2D690059BEDC /* Sources */,
+				3BD30985292D2D690059BEDC /* Frameworks */,
+				3BD30986292D2D690059BEDC /* Resources */,
 			);
 			buildRules = (
 			);
@@ -181,69 +90,25 @@
 			);
 			name = GPSLogger;
 			productName = GPSLogger;
-			productReference = 3B13D15428E736A800EB3B1D /* GPSLogger.app */;
+			productReference = 3BD30988292D2D690059BEDC /* GPSLogger.app */;
 			productType = "com.apple.product-type.application";
-		};
-		3B13D16C28E736A800EB3B1D /* GPSLoggerTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3B13D18428E736A800EB3B1D /* Build configuration list for PBXNativeTarget "GPSLoggerTests" */;
-			buildPhases = (
-				3B13D16928E736A800EB3B1D /* Sources */,
-				3B13D16A28E736A800EB3B1D /* Frameworks */,
-				3B13D16B28E736A800EB3B1D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3B13D16F28E736A800EB3B1D /* PBXTargetDependency */,
-			);
-			name = GPSLoggerTests;
-			productName = GPSLoggerTests;
-			productReference = 3B13D16D28E736A800EB3B1D /* GPSLoggerTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		3B13D17628E736A800EB3B1D /* GPSLoggerUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3B13D18728E736A800EB3B1D /* Build configuration list for PBXNativeTarget "GPSLoggerUITests" */;
-			buildPhases = (
-				3B13D17328E736A800EB3B1D /* Sources */,
-				3B13D17428E736A800EB3B1D /* Frameworks */,
-				3B13D17528E736A800EB3B1D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3B13D17928E736A800EB3B1D /* PBXTargetDependency */,
-			);
-			name = GPSLoggerUITests;
-			productName = GPSLoggerUITests;
-			productReference = 3B13D17728E736A800EB3B1D /* GPSLoggerUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		3B13D14C28E736A700EB3B1D /* Project object */ = {
+		3BD30980292D2D690059BEDC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1400;
-				LastUpgradeCheck = 1400;
+				LastSwiftUpdateCheck = 1410;
+				LastUpgradeCheck = 1410;
 				TargetAttributes = {
-					3B13D15328E736A800EB3B1D = {
-						CreatedOnToolsVersion = 14.0.1;
-					};
-					3B13D16C28E736A800EB3B1D = {
-						CreatedOnToolsVersion = 14.0.1;
-						TestTargetID = 3B13D15328E736A800EB3B1D;
-					};
-					3B13D17628E736A800EB3B1D = {
-						CreatedOnToolsVersion = 14.0.1;
-						TestTargetID = 3B13D15328E736A800EB3B1D;
+					3BD30987292D2D690059BEDC = {
+						CreatedOnToolsVersion = 14.1;
 					};
 				};
 			};
-			buildConfigurationList = 3B13D14F28E736A700EB3B1D /* Build configuration list for PBXProject "GPSLogger" */;
+			buildConfigurationList = 3BD30983292D2D690059BEDC /* Build configuration list for PBXProject "GPSLogger" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -251,112 +116,44 @@
 				en,
 				Base,
 			);
-			mainGroup = 3B13D14B28E736A700EB3B1D;
-			productRefGroup = 3B13D15528E736A800EB3B1D /* Products */;
+			mainGroup = 3BD3097F292D2D690059BEDC;
+			productRefGroup = 3BD30989292D2D690059BEDC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3B13D15328E736A800EB3B1D /* GPSLogger */,
-				3B13D16C28E736A800EB3B1D /* GPSLoggerTests */,
-				3B13D17628E736A800EB3B1D /* GPSLoggerUITests */,
+				3BD30987292D2D690059BEDC /* GPSLogger */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		3B13D15228E736A800EB3B1D /* Resources */ = {
+		3BD30986292D2D690059BEDC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B13D16728E736A800EB3B1D /* LaunchScreen.storyboard in Resources */,
-				3B13D16428E736A800EB3B1D /* Assets.xcassets in Resources */,
-				3B13D15F28E736A800EB3B1D /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3B13D16B28E736A800EB3B1D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3B13D17528E736A800EB3B1D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				3BD30993292D2D6A0059BEDC /* Preview Assets.xcassets in Resources */,
+				3BD30990292D2D6A0059BEDC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		3B13D15028E736A800EB3B1D /* Sources */ = {
+		3BD30984292D2D690059BEDC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B13D16228E736A800EB3B1D /* GPSLogger.xcdatamodeld in Sources */,
-				3BA9B66D28E8130B00FA4BAD /* GPSLogHelper.swift in Sources */,
-				3B13D15828E736A800EB3B1D /* AppDelegate.swift in Sources */,
-				3B77B14D28E7E32A00EF2D22 /* BackgroudLocationTracer.swift in Sources */,
-				3B13D15A28E736A800EB3B1D /* SceneDelegate.swift in Sources */,
-				3B13D18B28E7380D00EB3B1D /* LoggingVC.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3B13D16928E736A800EB3B1D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3B13D17228E736A800EB3B1D /* GPSLoggerTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3B13D17328E736A800EB3B1D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3B13D17C28E736A800EB3B1D /* GPSLoggerUITests.swift in Sources */,
-				3B13D17E28E736A800EB3B1D /* GPSLoggerUITestsLaunchTests.swift in Sources */,
+				3BD30998292D2D6A0059BEDC /* GPSLogger.xcdatamodeld in Sources */,
+				3BD30995292D2D6A0059BEDC /* Persistence.swift in Sources */,
+				3BD3098E292D2D690059BEDC /* ContentView.swift in Sources */,
+				3BD3098C292D2D690059BEDC /* GPSLoggerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		3B13D16F28E736A800EB3B1D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3B13D15328E736A800EB3B1D /* GPSLogger */;
-			targetProxy = 3B13D16E28E736A800EB3B1D /* PBXContainerItemProxy */;
-		};
-		3B13D17928E736A800EB3B1D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3B13D15328E736A800EB3B1D /* GPSLogger */;
-			targetProxy = 3B13D17828E736A800EB3B1D /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		3B13D15D28E736A800EB3B1D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3B13D15E28E736A800EB3B1D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		3B13D16528E736A800EB3B1D /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3B13D16628E736A800EB3B1D /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		3B13D17F28E736A800EB3B1D /* Debug */ = {
+		3BD30999292D2D6A0059BEDC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -406,18 +203,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = GPSLogger;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		3B13D18028E736A800EB3B1D /* Release */ = {
+		3BD3099A292D2D6A0059BEDC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -461,11 +257,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = GPSLogger;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -473,22 +267,20 @@
 			};
 			name = Release;
 		};
-		3B13D18228E736A800EB3B1D /* Debug */ = {
+		3BD3099C292D2D6A0059BEDC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"GPSLogger/Preview Content\"";
 				DEVELOPMENT_TEAM = FD5Y4D2A26;
+				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GPSLogger/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = GPSLogger;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -498,29 +290,26 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.curoky.GPSLogger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		3B13D18328E736A800EB3B1D /* Release */ = {
+		3BD3099D292D2D6A0059BEDC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"GPSLogger/Preview Content\"";
 				DEVELOPMENT_TEAM = FD5Y4D2A26;
+				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GPSLogger/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = GPSLogger;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -530,120 +319,29 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.curoky.GPSLogger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
-		3B13D18528E736A800EB3B1D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.curoky.GPSLoggerTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GPSLogger.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GPSLogger";
-			};
-			name = Debug;
-		};
-		3B13D18628E736A800EB3B1D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.curoky.GPSLoggerTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GPSLogger.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GPSLogger";
-			};
-			name = Release;
-		};
-		3B13D18828E736A800EB3B1D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.curoky.GPSLoggerUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = GPSLogger;
-			};
-			name = Debug;
-		};
-		3B13D18928E736A800EB3B1D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.curoky.GPSLoggerUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = GPSLogger;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3B13D14F28E736A700EB3B1D /* Build configuration list for PBXProject "GPSLogger" */ = {
+		3BD30983292D2D690059BEDC /* Build configuration list for PBXProject "GPSLogger" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3B13D17F28E736A800EB3B1D /* Debug */,
-				3B13D18028E736A800EB3B1D /* Release */,
+				3BD30999292D2D6A0059BEDC /* Debug */,
+				3BD3099A292D2D6A0059BEDC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3B13D18128E736A800EB3B1D /* Build configuration list for PBXNativeTarget "GPSLogger" */ = {
+		3BD3099B292D2D6A0059BEDC /* Build configuration list for PBXNativeTarget "GPSLogger" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3B13D18228E736A800EB3B1D /* Debug */,
-				3B13D18328E736A800EB3B1D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3B13D18428E736A800EB3B1D /* Build configuration list for PBXNativeTarget "GPSLoggerTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3B13D18528E736A800EB3B1D /* Debug */,
-				3B13D18628E736A800EB3B1D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3B13D18728E736A800EB3B1D /* Build configuration list for PBXNativeTarget "GPSLoggerUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3B13D18828E736A800EB3B1D /* Debug */,
-				3B13D18928E736A800EB3B1D /* Release */,
+				3BD3099C292D2D6A0059BEDC /* Debug */,
+				3BD3099D292D2D6A0059BEDC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -651,17 +349,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		3B13D16028E736A800EB3B1D /* GPSLogger.xcdatamodeld */ = {
+		3BD30996292D2D6A0059BEDC /* GPSLogger.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				3B13D16128E736A800EB3B1D /* GPSLogger.xcdatamodel */,
+				3BD30997292D2D6A0059BEDC /* GPSLogger.xcdatamodel */,
 			);
-			currentVersion = 3B13D16128E736A800EB3B1D /* GPSLogger.xcdatamodel */;
+			currentVersion = 3BD30997292D2D6A0059BEDC /* GPSLogger.xcdatamodel */;
 			path = GPSLogger.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */
 	};
-	rootObject = 3B13D14C28E736A700EB3B1D /* Project object */;
+	rootObject = 3BD30980292D2D690059BEDC /* Project object */;
 }
