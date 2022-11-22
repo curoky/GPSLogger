@@ -27,3 +27,4 @@ repos:
     rev: '0.50.0'
     hooks:
       - id: swiftformat
+        args: ['--swiftversion', '5.7.1']
