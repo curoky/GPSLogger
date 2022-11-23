@@ -29,4 +29,8 @@ struct GPSLoggerApp: App {
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
+
+    init() {
+        BackgroudLocationTracer.shared.startMonitoring()
+    }
 }
