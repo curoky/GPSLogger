@@ -7,9 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B6C3901292DF53E004FF400 /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = 3B6C3900292DF53E004FF400 /* Collections */; };
+		3B6C3903292DF53E004FF400 /* DequeModule in Frameworks */ = {isa = PBXBuildFile; productRef = 3B6C3902292DF53E004FF400 /* DequeModule */; };
+		3B6C3905292DF53E004FF400 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 3B6C3904292DF53E004FF400 /* OrderedCollections */; };
+		3B6C3907292E00C9004FF400 /* TextDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6C3906292E00C9004FF400 /* TextDocument.swift */; };
+		3B85DE1E292DD15A0054A727 /* BackgroudLocationTracer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B85DE1D292DD15A0054A727 /* BackgroudLocationTracer.swift */; };
+		3B85DE20292DD1E20054A727 /* GPSLogHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B85DE1F292DD1E20054A727 /* GPSLogHelper.swift */; };
 		3BCB673E292D2F7C0067D870 /* CoreGPX.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BCB673D292D2F7C0067D870 /* CoreGPX.xcframework */; };
 		3BCB673F292D2F7C0067D870 /* CoreGPX.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3BCB673D292D2F7C0067D870 /* CoreGPX.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3BCB6742292D46A40067D870 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCB6741292D46A40067D870 /* Logger.swift */; };
 		3BD3098C292D2D690059BEDC /* GPSLoggerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD3098B292D2D690059BEDC /* GPSLoggerApp.swift */; };
 		3BD3098E292D2D690059BEDC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD3098D292D2D690059BEDC /* ContentView.swift */; };
 		3BD30990292D2D6A0059BEDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BD3098F292D2D6A0059BEDC /* Assets.xcassets */; };
@@ -33,8 +38,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3B6C3906292E00C9004FF400 /* TextDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDocument.swift; sourceTree = "<group>"; };
+		3B6C3908292E0671004FF400 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		3B85DE1D292DD15A0054A727 /* BackgroudLocationTracer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroudLocationTracer.swift; sourceTree = "<group>"; };
+		3B85DE1F292DD1E20054A727 /* GPSLogHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSLogHelper.swift; sourceTree = "<group>"; };
 		3BCB673D292D2F7C0067D870 /* CoreGPX.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = CoreGPX.xcframework; path = Carthage/Build/CoreGPX.xcframework; sourceTree = "<group>"; };
-		3BCB6741292D46A40067D870 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		3BD30988292D2D690059BEDC /* GPSLogger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPSLogger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BD3098B292D2D690059BEDC /* GPSLoggerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSLoggerApp.swift; sourceTree = "<group>"; };
 		3BD3098D292D2D690059BEDC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -49,7 +57,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B6C3901292DF53E004FF400 /* Collections in Frameworks */,
 				3BCB673E292D2F7C0067D870 /* CoreGPX.xcframework in Frameworks */,
+				3B6C3905292DF53E004FF400 /* OrderedCollections in Frameworks */,
+				3B6C3903292DF53E004FF400 /* DequeModule in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,13 +95,16 @@
 		3BD3098A292D2D690059BEDC /* GPSLogger */ = {
 			isa = PBXGroup;
 			children = (
+				3B6C3908292E0671004FF400 /* Info.plist */,
 				3BD3098B292D2D690059BEDC /* GPSLoggerApp.swift */,
 				3BD3098D292D2D690059BEDC /* ContentView.swift */,
 				3BD3098F292D2D6A0059BEDC /* Assets.xcassets */,
 				3BD30994292D2D6A0059BEDC /* Persistence.swift */,
 				3BD30996292D2D6A0059BEDC /* GPSLogger.xcdatamodeld */,
 				3BD30991292D2D6A0059BEDC /* Preview Content */,
-				3BCB6741292D46A40067D870 /* Logger.swift */,
+				3B85DE1D292DD15A0054A727 /* BackgroudLocationTracer.swift */,
+				3B85DE1F292DD1E20054A727 /* GPSLogHelper.swift */,
+				3B6C3906292E00C9004FF400 /* TextDocument.swift */,
 			);
 			path = GPSLogger;
 			sourceTree = "<group>";
@@ -120,6 +134,11 @@
 			dependencies = (
 			);
 			name = GPSLogger;
+			packageProductDependencies = (
+				3B6C3900292DF53E004FF400 /* Collections */,
+				3B6C3902292DF53E004FF400 /* DequeModule */,
+				3B6C3904292DF53E004FF400 /* OrderedCollections */,
+			);
 			productName = GPSLogger;
 			productReference = 3BD30988292D2D690059BEDC /* GPSLogger.app */;
 			productType = "com.apple.product-type.application";
@@ -148,6 +167,9 @@
 				Base,
 			);
 			mainGroup = 3BD3097F292D2D690059BEDC;
+			packageReferences = (
+				3B6C38FF292DF53E004FF400 /* XCRemoteSwiftPackageReference "swift-collections" */,
+			);
 			productRefGroup = 3BD30989292D2D690059BEDC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -174,9 +196,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BCB6742292D46A40067D870 /* Logger.swift in Sources */,
+				3B6C3907292E00C9004FF400 /* TextDocument.swift in Sources */,
+				3B85DE1E292DD15A0054A727 /* BackgroudLocationTracer.swift in Sources */,
 				3BD30998292D2D6A0059BEDC /* GPSLogger.xcdatamodeld in Sources */,
 				3BD30995292D2D6A0059BEDC /* Persistence.swift in Sources */,
+				3B85DE20292DD1E20054A727 /* GPSLogHelper.swift in Sources */,
 				3BD3098E292D2D690059BEDC /* ContentView.swift in Sources */,
 				3BD3098C292D2D690059BEDC /* GPSLoggerApp.swift in Sources */,
 			);
@@ -397,6 +421,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3B6C38FF292DF53E004FF400 /* XCRemoteSwiftPackageReference "swift-collections" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-collections.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3B6C3900292DF53E004FF400 /* Collections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B6C38FF292DF53E004FF400 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = Collections;
+		};
+		3B6C3902292DF53E004FF400 /* DequeModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B6C38FF292DF53E004FF400 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = DequeModule;
+		};
+		3B6C3904292DF53E004FF400 /* OrderedCollections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B6C38FF292DF53E004FF400 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = OrderedCollections;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		3BD30996292D2D6A0059BEDC /* GPSLogger.xcdatamodeld */ = {
