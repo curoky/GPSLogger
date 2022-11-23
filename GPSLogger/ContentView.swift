@@ -22,30 +22,47 @@ import SwiftUI
 struct ContentView: View {
     @State private var onHighPrecision = false
     @State private var logMessage = ""
+    @State private var logfile = TextDocument(message: "")
+    @State private var isExporting: Bool = false
 
     var body: some View {
         VStack {
             TextEditor(text: .constant(logMessage))
                 .foregroundColor(.black)
                 .padding(.horizontal)
-                .font(/*@START_MENU_TOKEN@*/ .title3/*@END_MENU_TOKEN@*/)
+                .font(/*@START_MENU_TOKEN@*/ .caption2/*@END_MENU_TOKEN@*/)
 
             HStack {
-                Toggle(isOn: $onHighPrecision) {}.labelsHidden()
+                Toggle(isOn: $onHighPrecision) {}
+                    .labelsHidden()
+                    .onChange(of: onHighPrecision) { _ in
+                        BackgroudLocationTracer.shared.switchTracerMode(highPrecision: onHighPrecision)
+                        logMessage = GPSLogHelper.shared.tailfLog()
+                    }
 
-                Button(action: {}) {
+                Button(action: {
+                    isExporting.toggle()
+                    logfile.message = try! String(contentsOf: GPSLogHelper.shared.logFilePath)
+                }) {
                     Image(systemName: "square.and.arrow.up")
                 }
                 .buttonStyle(.borderedProminent)
 
                 Button(action: {
-                    logMessage += "123\n"
+                    logMessage = GPSLogHelper.shared.tailfLog()
                 }) {
                     Image(systemName: "gobackward")
                 }
                 .buttonStyle(.borderedProminent)
-
-            }.padding()
+            }
+            .padding()
+        }
+        .fileExporter(isPresented: $isExporting, document: logfile, contentType: .plainText, defaultFilename: "gps.log.txt") { result in
+            if case .success = result {
+                Swift.print("Success!")
+            } else {
+                Swift.print("Something went wrong…")
+            }
         }
     }
 }
