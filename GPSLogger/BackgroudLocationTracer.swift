@@ -27,7 +27,6 @@ class BackgroudLocationTracer: NSObject {
     static let shared = BackgroudLocationTracer()
 
     var locationManager = CLLocationManager()
-    var tracerMode = 0
 
     func startMonitoring() {
         locationManager.requestAlwaysAuthorization()
@@ -40,9 +39,8 @@ class BackgroudLocationTracer: NSObject {
         locationManager.delegate = self
     }
 
-    func switchTracerMode() {
-        tracerMode ^= 1
-        if tracerMode == 1 {
+    func switchTracerMode(highPrecision: Bool) {
+        if highPrecision {
             GPSLogHelper.shared.log(message: "before: startUpdatingLocation")
             locationManager.stopMonitoringSignificantLocationChanges()
             locationManager.startUpdatingLocation()

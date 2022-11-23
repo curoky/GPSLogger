@@ -17,51 +17,43 @@
  * limitations under the License.
  */
 
+import Collections
 import Foundation
 
 class GPSLogHelper: NSObject {
     static let shared = GPSLogHelper()
 
-    var logFilePath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0].appending("/gps.log")
+    var logFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appending(path: "/gps.log")
 
-    var messageBuffer: [String] = []
-    var bufferLock: NSLock = .init()
+    var messageBuffer = Deque<String>()
+    var bufferLimit = 20
+    var bufferLock = NSLock()
 
     func log(message: String) {
         bufferLock.lock()
         defer { bufferLock.unlock() }
 
-        messageBuffer.append(message + "size:\(messageBuffer.count)\n")
-        if messageBuffer.count > 50 {
-            flushLog()
+        messageBuffer.append(message + "size:\(messageBuffer.count % bufferLimit)\n")
+        if messageBuffer.count > bufferLimit {
+            messageBuffer.removeFirst(messageBuffer.count - bufferLimit)
         }
-    }
 
-    func flushLog() {
-        let fileHandle = FileHandle(forWritingAtPath: logFilePath)!
+        let fileHandle = try! FileHandle(forWritingTo: logFilePath)
         fileHandle.seekToEndOfFile()
-        for m in messageBuffer {
-            fileHandle.write(m.data(using: .utf8)!)
-        }
+        fileHandle.write(message.data(using: .utf8)!)
         try! fileHandle.close()
-        messageBuffer.removeAll(keepingCapacity: true)
-    }
-
-    func flushLogThreadSafe() {
-        bufferLock.lock()
-        defer { bufferLock.unlock() }
-        flushLog()
     }
 
     override private init() {
-        if !FileManager.default.fileExists(atPath: logFilePath) {
-            FileManager.default.createFile(atPath: logFilePath, contents: "File created at:  \(ISO8601DateFormatter().string(from: Date()))\n\n".data(using: .utf8))
+        if !FileManager.default.fileExists(atPath: logFilePath.path()) {
+            FileManager.default.createFile(atPath: logFilePath.path(), contents: "File created at:  \(ISO8601DateFormatter().string(from: Date()))\n\n".data(using: .utf8))
         }
     }
 
     func tailfLog() -> String {
         bufferLock.lock()
         defer { bufferLock.unlock() }
-        return messageBuffer.reversed().joined()
+//        return messageBuffer.reversed().joined()
+        return messageBuffer.joined()
     }
 }
