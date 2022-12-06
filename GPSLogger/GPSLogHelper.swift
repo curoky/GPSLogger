@@ -33,7 +33,7 @@ class GPSLogHelper: NSObject {
         bufferLock.lock()
         defer { bufferLock.unlock() }
 
-        messageBuffer.append(message + "size:\(messageBuffer.count % bufferLimit)\n")
+        messageBuffer.append(message)
         if messageBuffer.count > bufferLimit {
             messageBuffer.removeFirst(messageBuffer.count - bufferLimit)
         }

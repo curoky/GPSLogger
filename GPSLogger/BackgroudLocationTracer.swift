@@ -41,15 +41,15 @@ class BackgroudLocationTracer: NSObject {
 
     func switchTracerMode(highPrecision: Bool) {
         if highPrecision {
-            GPSLogHelper.shared.log(message: "before: startUpdatingLocation")
+            GPSLogHelper.shared.log(message: "before: startUpdatingLocation\n")
             locationManager.stopMonitoringSignificantLocationChanges()
             locationManager.startUpdatingLocation()
-            GPSLogHelper.shared.log(message: "after: startUpdatingLocation")
+            GPSLogHelper.shared.log(message: "after: startUpdatingLocation\n")
         } else {
-            GPSLogHelper.shared.log(message: "before: startMonitoringSignificantLocationChanges")
+            GPSLogHelper.shared.log(message: "before: startMonitoringSignificantLocationChanges\n")
             locationManager.stopUpdatingLocation()
             locationManager.startMonitoringSignificantLocationChanges()
-            GPSLogHelper.shared.log(message: "after: startMonitoringSignificantLocationChanges")
+            GPSLogHelper.shared.log(message: "after: startMonitoringSignificantLocationChanges\n")
         }
     }
 }
@@ -69,7 +69,7 @@ extension BackgroudLocationTracer: CLLocationManagerDelegate {
             ellipsoidalAltitude=\(loc.ellipsoidalAltitude),\
             horizontalAccuracy=\(loc.horizontalAccuracy),\
             verticalAccuracy=\(loc.verticalAccuracy),\
-            courseAccuracy=\(loc.courseAccuracy)|
+            courseAccuracy=\(loc.courseAccuracy)|\n
             """)
         }
 //        GPSLogHelper.shared.log(message: String(locations.description))
