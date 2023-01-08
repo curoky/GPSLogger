@@ -25,39 +25,43 @@ typealias Listener = (CLLocation) -> Void
 
 class BackgroudLocationTracer: NSObject {
     static let shared = BackgroudLocationTracer()
-
+    var isOnHighPrecision = false
     var locationManager = CLLocationManager()
 
     func startMonitoring() {
+        GPSLogHelper.shared.log(message: "====== startMonitoring \n")
         locationManager.requestAlwaysAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.pausesLocationUpdatesAutomatically = false
         locationManager.allowsBackgroundLocationUpdates = true
         locationManager.showsBackgroundLocationIndicator = false
         locationManager.distanceFilter = 50
-        locationManager.startMonitoringSignificantLocationChanges()
+        switchTracerMode(highPrecision: true)
         locationManager.delegate = self
     }
 
     func switchTracerMode(highPrecision: Bool) {
+        if isOnHighPrecision == highPrecision {
+            return
+        }
+        GPSLogHelper.shared.log(message: "====== switchTracerMode \(highPrecision)\n")
+        isOnHighPrecision = highPrecision
         if highPrecision {
-            GPSLogHelper.shared.log(message: "before: startUpdatingLocation\n")
+            GPSLogHelper.shared.log(message: "====== startUpdatingLocation \n")
             locationManager.stopMonitoringSignificantLocationChanges()
             locationManager.startUpdatingLocation()
-            GPSLogHelper.shared.log(message: "after: startUpdatingLocation\n")
         } else {
-            GPSLogHelper.shared.log(message: "before: startMonitoringSignificantLocationChanges\n")
+            GPSLogHelper.shared.log(message: "====== startMonitoringSignificantLocationChanges \n")
             locationManager.stopUpdatingLocation()
             locationManager.startMonitoringSignificantLocationChanges()
-            GPSLogHelper.shared.log(message: "after: startMonitoringSignificantLocationChanges\n")
         }
     }
 }
 
 extension BackgroudLocationTracer: CLLocationManagerDelegate {
     func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        var res = "=>|"
         for loc in locations {
+            var res = "=>|"
             res.append("""
             timestamp=\(loc.timestamp),\
             speed=\(loc.speed),\
@@ -71,9 +75,29 @@ extension BackgroudLocationTracer: CLLocationManagerDelegate {
             verticalAccuracy=\(loc.verticalAccuracy),\
             courseAccuracy=\(loc.courseAccuracy)|\n
             """)
+            //  GPSLogHelper.shared.log(message: String(locations.description))
+            GPSLogHelper.shared.log(message: res)
+            if isOnHighPrecision {
+                for mp in MY_LIVE_POSITIONS {
+                    if loc.distance(from: mp) < 50 {
+                        GPSLogHelper.shared.log(message: "====== < 50 stop \n")
+                        switchTracerMode(highPrecision: false)
+                    }
+                }
+            } else {
+                var inAnyOne = false
+                for mp in MY_LIVE_POSITIONS {
+                    if loc.distance(from: mp) < 500 {
+                        inAnyOne = true
+                    }
+                }
+                if !inAnyOne {
+                    GPSLogHelper.shared.log(message: "====== > 500 start \n")
+                    switchTracerMode(highPrecision: true)
+                }
+            }
+            break
         }
-//        GPSLogHelper.shared.log(message: String(locations.description))
-        GPSLogHelper.shared.log(message: res)
     }
 
     func locationManager(_: CLLocationManager, didFailWithError error: Error) {

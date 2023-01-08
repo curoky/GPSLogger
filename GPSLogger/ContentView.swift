@@ -20,7 +20,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var onHighPrecision = false
+    @State private var onHighPrecision = true
     @State private var logMessage = ""
     @State private var logfile = TextDocument(message: "")
     @State private var isExporting: Bool = false
@@ -49,6 +49,7 @@ struct ContentView: View {
                 .buttonStyle(.borderedProminent)
 
                 Button(action: {
+                    onHighPrecision = BackgroudLocationTracer.shared.isOnHighPrecision
                     logMessage = GPSLogHelper.shared.tailfLog()
                 }) {
                     Image(systemName: "gobackward")
