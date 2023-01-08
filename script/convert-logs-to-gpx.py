@@ -16,8 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import gpxpy.gpx
 from pathlib import Path
+
+import gpxpy.gpx
 from dateutil.parser import parse
 
 
