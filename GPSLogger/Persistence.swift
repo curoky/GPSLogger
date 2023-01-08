@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2022 curoky(cccuroky@gmail.com).
+ * Copyright (c) 2022-2023 curoky(cccuroky@gmail.com).
  *
  * This file is part of GPSLogger.
  * See https://github.com/curoky/GPSLogger for further info.
