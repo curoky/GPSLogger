@@ -61,22 +61,21 @@ class BackgroudLocationTracer: NSObject {
 extension BackgroudLocationTracer: CLLocationManagerDelegate {
     func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         for loc in locations {
-            var res = "=>|"
-            res.append("""
-            timestamp=\(loc.timestamp),\
-            speed=\(loc.speed),\
-            latitude=\(loc.coordinate.latitude),\
-            longitude=\(loc.coordinate.longitude),\
-            altitude=\(loc.altitude),\
-            course=\(loc.course),\
-            speedAccuracy=\(loc.speedAccuracy),\
-            ellipsoidalAltitude=\(loc.ellipsoidalAltitude),\
-            horizontalAccuracy=\(loc.horizontalAccuracy),\
-            verticalAccuracy=\(loc.verticalAccuracy),\
-            courseAccuracy=\(loc.courseAccuracy)|\n
-            """)
-            //  GPSLogHelper.shared.log(message: String(locations.description))
-            GPSLogHelper.shared.log(message: res)
+            let encoder = JSONEncoder()
+            encoder.outputFormatting = .sortedKeys
+            let jsonData = try! encoder.encode(["timestamp": loc.timestamp.description,
+                                                "speed": loc.speed.description,
+                                                "latitude": loc.coordinate.latitude.description,
+                                                "longitude": loc.coordinate.longitude.description,
+                                                "altitude": loc.altitude.description,
+                                                "course": loc.course.description,
+                                                "speedAccuracy": loc.speedAccuracy.description,
+                                                "ellipsoidalAltitude": loc.ellipsoidalAltitude.description,
+                                                "horizontalAccuracy": loc.horizontalAccuracy.description,
+                                                "verticalAccuracy": loc.verticalAccuracy.description,
+                                                "courseAccuracy": loc.courseAccuracy.description])
+            GPSLogHelper.shared.log(message: (String(data: jsonData, encoding: .utf8) ?? "error in loc to json") + "\n")
+
             if isOnHighPrecision {
                 for mp in MY_LIVE_POSITIONS {
                     if loc.distance(from: mp) < 50 {
