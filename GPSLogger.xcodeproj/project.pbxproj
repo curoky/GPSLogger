@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B2B72C4296B02FF008A2436 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B72C3296B02FF008A2436 /* Config.swift */; };
 		3B6C3901292DF53E004FF400 /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = 3B6C3900292DF53E004FF400 /* Collections */; };
 		3B6C3903292DF53E004FF400 /* DequeModule in Frameworks */ = {isa = PBXBuildFile; productRef = 3B6C3902292DF53E004FF400 /* DequeModule */; };
 		3B6C3905292DF53E004FF400 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 3B6C3904292DF53E004FF400 /* OrderedCollections */; };
@@ -38,6 +39,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3B2B72C3296B02FF008A2436 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		3B6C3906292E00C9004FF400 /* TextDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDocument.swift; sourceTree = "<group>"; };
 		3B6C3908292E0671004FF400 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3B85DE1D292DD15A0054A727 /* BackgroudLocationTracer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroudLocationTracer.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				3B85DE1D292DD15A0054A727 /* BackgroudLocationTracer.swift */,
 				3B85DE1F292DD1E20054A727 /* GPSLogHelper.swift */,
 				3B6C3906292E00C9004FF400 /* TextDocument.swift */,
+				3B2B72C3296B02FF008A2436 /* Config.swift */,
 			);
 			path = GPSLogger;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 				3BD30998292D2D6A0059BEDC /* GPSLogger.xcdatamodeld in Sources */,
 				3BD30995292D2D6A0059BEDC /* Persistence.swift in Sources */,
 				3B85DE20292DD1E20054A727 /* GPSLogHelper.swift in Sources */,
+				3B2B72C4296B02FF008A2436 /* Config.swift in Sources */,
 				3BD3098E292D2D690059BEDC /* ContentView.swift in Sources */,
 				3BD3098C292D2D690059BEDC /* GPSLoggerApp.swift in Sources */,
 			);
