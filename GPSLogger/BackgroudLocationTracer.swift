@@ -86,12 +86,12 @@ extension BackgroudLocationTracer: CLLocationManagerDelegate {
             } else {
                 var inAnyOne = false
                 for mp in MY_LIVE_POSITIONS {
-                    if loc.distance(from: mp) < 500 {
+                    if loc.distance(from: mp) < 100 {
                         inAnyOne = true
                     }
                 }
                 if !inAnyOne {
-                    GPSLogHelper.shared.log(message: "====== > 500 start \n")
+                    GPSLogHelper.shared.log(message: "====== > 100 start \n")
                     switchTracerMode(highPrecision: true)
                 }
             }
