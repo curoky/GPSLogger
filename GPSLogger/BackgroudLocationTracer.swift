@@ -27,6 +27,7 @@ class BackgroudLocationTracer: NSObject {
     static let shared = BackgroudLocationTracer()
     var isOnHighPrecision = false
     var locationManager = CLLocationManager()
+    var lastSwithedHighPrecisionTime = Date.now
 
     func startMonitoring() {
         GPSLogHelper.shared.log(message: "====== startMonitoring \n")
@@ -47,6 +48,7 @@ class BackgroudLocationTracer: NSObject {
         GPSLogHelper.shared.log(message: "====== switchTracerMode \(highPrecision)\n")
         isOnHighPrecision = highPrecision
         if highPrecision {
+            lastSwithedHighPrecisionTime = Date.now
             GPSLogHelper.shared.log(message: "====== startUpdatingLocation \n")
             locationManager.stopMonitoringSignificantLocationChanges()
             locationManager.startUpdatingLocation()
@@ -79,8 +81,13 @@ extension BackgroudLocationTracer: CLLocationManagerDelegate {
             if isOnHighPrecision {
                 for mp in MY_LIVE_POSITIONS {
                     if loc.distance(from: mp) < 50 {
-                        GPSLogHelper.shared.log(message: "====== < 50 stop \n")
-                        switchTracerMode(highPrecision: false)
+                        let diffComponents = Calendar.current.dateComponents([.minute], from: lastSwithedHighPrecisionTime, to: Date.now)
+                        if diffComponents.minute! < 10 {
+                            GPSLogHelper.shared.log(message: "====== < 50 but not stop for(\(diffComponents.minute!) minute) \n")
+                        } else {
+                            GPSLogHelper.shared.log(message: "====== < 50 stop \n")
+                            switchTracerMode(highPrecision: false)
+                        }
                     }
                 }
             } else {
