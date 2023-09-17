@@ -38,6 +38,11 @@ struct LocationStatusView: View {
                     Spacer()
                     Text(tracer.currentLocation.course, format: .number)
                 }
+                HStack {
+                    Text("cumulativeDistance:")
+                    Spacer()
+                    Text(tracer.cumulativeDistance, format: .number)
+                }
             }
             .padding(.leading, -5)
             .padding(.trailing, -5)

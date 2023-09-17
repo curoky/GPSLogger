@@ -24,14 +24,14 @@ import SwiftUI
 
 class BackgroudLocationTracer: NSObject, ObservableObject {
     var locationManager = CLLocationManager()
-    var stopedLocation: [CLLocation] = []
-
-    @Published var currentLocation: CLLocationCoordinate2D = kCLLocationCoordinate2DInvalid
-    @Published var currentAltitude: Double = 0
+    @Published var currentLocation: CLLocation = .init(latitude: 0, longitude: 0) // kCLLocationCoordinate2DInvalid
     @Published var updatedCount: Int = 0
-    @Published var isOnHighPrecision: Bool = false
-    @Published var lastSwithedHighPrecisionTime = Date.now
+    @Published var isOnHighPrecision: Bool = true
+    @Published var lastSwitchHighPrecisionTime = Date.now
     @Published var currentMessage: String = ""
+    @Published var isInStoppedPositon: Bool = false
+    @Published var beginLocation: CLLocation = .init(latitude: 0, longitude: 0)
+    @Published var cumulativeDistance: Double = 0
 
     func startMonitoring() {
         locationManager.requestAlwaysAuthorization()
@@ -40,17 +40,15 @@ class BackgroudLocationTracer: NSObject, ObservableObject {
         locationManager.allowsBackgroundLocationUpdates = true
         locationManager.showsBackgroundLocationIndicator = false
         locationManager.distanceFilter = 50
-        switchTracerMode(highPrecision: true)
+        updateTracerMode(enable: true)
         locationManager.delegate = self
     }
 
-    func switchTracerMode(highPrecision: Bool) {
-        if isOnHighPrecision == highPrecision {
-            return
-        }
-        isOnHighPrecision = highPrecision
-        if highPrecision {
-            lastSwithedHighPrecisionTime = Date.now
+    func updateTracerMode(enable: Bool) {
+        isOnHighPrecision = enable
+        print("updateTracerMode: \(isOnHighPrecision)")
+        if isOnHighPrecision {
+            lastSwitchHighPrecisionTime = Date.now
             locationManager.stopMonitoringSignificantLocationChanges()
             locationManager.startUpdatingLocation()
         } else {
@@ -58,20 +56,13 @@ class BackgroudLocationTracer: NSObject, ObservableObject {
             locationManager.startMonitoringSignificantLocationChanges()
         }
     }
-
-    func getLogFileURL() -> URL? {
-        if let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-            return documentsDirectory.appendingPathComponent("gps_log.txt")
-        }
-        return nil
-    }
 }
 
 extension BackgroudLocationTracer: CLLocationManagerDelegate {
     func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         for loc in locations {
-            currentAltitude = loc.altitude
-            currentLocation = loc.coordinate
+            cumulativeDistance += currentLocation.distance(from: loc)
+            currentLocation = loc
             updatedCount += 1
             do {
                 let jsonData = try JSONSerialization.data(withJSONObject: ["timestamp": loc.timestamp.description,
@@ -90,7 +81,7 @@ extension BackgroudLocationTracer: CLLocationManagerDelegate {
                     currentMessage = jsonString
                 }
 
-                if let logFileURL = getLogFileURL() {
+                if let logFileURL = Config.shared.getGPSLogSaveURL() {
                     if !FileManager.default.fileExists(atPath: logFileURL.path()) {
                         FileManager.default.createFile(atPath: logFileURL.path(), contents: nil)
                     }
@@ -102,28 +93,31 @@ extension BackgroudLocationTracer: CLLocationManagerDelegate {
                 }
 
             } catch {
-                print("保存JSON文件失败：\(error)")
+                print("save json failed：\(error)")
             }
 
+            isInStoppedPositon = false
             if isOnHighPrecision {
-                for mp in stopedLocation {
+                for mp in Config.shared.stopedLocation {
                     if loc.distance(from: mp) < 50 {
-                        let diffComponents = Calendar.current.dateComponents([.minute], from: lastSwithedHighPrecisionTime, to: Date.now)
+                        isInStoppedPositon = true
+                        let diffComponents = Calendar.current.dateComponents([.minute], from: lastSwitchHighPrecisionTime, to: Date.now)
                         if diffComponents.minute! < 10 {
                         } else {
-                            switchTracerMode(highPrecision: false)
+                            updateTracerMode(enable: false)
                         }
                     }
                 }
             } else {
                 var inAnyOne = false
-                for mp in stopedLocation {
+                for mp in Config.shared.stopedLocation {
                     if loc.distance(from: mp) < 100 {
+                        isInStoppedPositon = true
                         inAnyOne = true
                     }
                 }
                 if !inAnyOne {
-                    switchTracerMode(highPrecision: true)
+                    updateTracerMode(enable: true)
                 }
             }
             break
