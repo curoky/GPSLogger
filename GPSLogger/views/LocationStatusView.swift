@@ -53,7 +53,7 @@ struct LocationStatusView: View {
                 HStack {
                     Text("cumulativeDistance:")
                     Spacer()
-                    Text(tracer.cumulativeDistance, format: .number)
+                    Text(String(format: "%.3fkm", tracer.cumulativeDistance / 1000))
                 }
             }
             .padding(.leading, -5)
