@@ -61,9 +61,11 @@ class BackgroudLocationTracer: NSObject, ObservableObject {
 extension BackgroudLocationTracer: CLLocationManagerDelegate {
     func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         for loc in locations {
-            cumulativeDistance += currentLocation.distance(from: loc)
-            currentLocation = loc
+            if updatedCount > 1 {
+                cumulativeDistance += currentLocation.distance(from: loc)
+            }
             updatedCount += 1
+            currentLocation = loc
             do {
                 let jsonData = try JSONSerialization.data(withJSONObject: ["timestamp": loc.timestamp.description,
                                                                            "speed": loc.speed.description,
