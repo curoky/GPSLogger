@@ -8,21 +8,29 @@
 import SwiftUI
 
 struct LogView: View {
+    @State var logMessages: [LogMessage] = []
+
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack {
             Text("Logging")
                 .font(.headline)
-                .padding(.bottom, 10)
-
             ScrollView {
-                LazyVStack(alignment: .leading) {
-                    ForEach(LogManager.shared.logMessages) { logMessage in
+                LazyVStack {
+                    ForEach(logMessages) { logMessage in
                         Text("\(logMessage.timestamp.ISO8601Format()):  \(logMessage.message)")
                     }
                 }
             }
+            Button(action: onActionExport) {
+                Image(systemName: "arrow.clockwise.circle")
+            }
+            .buttonStyle(.borderedProminent)
         }
-        .padding()
+//        .padding()
+    }
+
+    func onActionExport() {
+        logMessages = LogManager.shared.logMessages
     }
 }
 
