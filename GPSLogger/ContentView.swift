@@ -20,107 +20,25 @@ import CoreLocation
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject private var tracer = BackgroudLocationTracer()
-    @StateObject private var config = Config()
-    @State private var configText: String = ""
-
     var body: some View {
-        VStack(spacing: 10) {
-            GeometryReader { _ in
-                List {
-                    HStack {
-                        Text("latitude:")
-                        Spacer()
-                        Text("\(tracer.currentLocation.latitude)")
-                            .onTapGesture {
-                                UIPasteboard.general.string = String(tracer.currentLocation.latitude)
-                            }
-                    }
-                    HStack {
-                        Text("longitude:")
-                        Spacer()
-                        Text("\(tracer.currentLocation.longitude)")
-                            .onTapGesture {
-                                UIPasteboard.general.string = String(tracer.currentLocation.longitude)
-                            }
-                    }
-                    HStack {
-                        Text("Altitude:")
-                        Spacer()
-                        Text("\(tracer.currentAltitude)")
-                            .onTapGesture {
-                                UIPasteboard.general.string = String(tracer.currentAltitude)
-                            }
-                    }
-                    HStack {
-                        Text("Update size:")
-                        Spacer()
-                        Text("\(tracer.updatedCount)")
-                    }
-                }
+        TabView {
+            LocationStatusView().tabItem {
+                Image(systemName: "location.circle")
+                Text("GPS")
             }
-            GeometryReader { _ in
-                List {
-                    ForEach(config.stopedLocation, id: \.self) { loc in
-                        Text("\(loc.coordinate.latitude):\(loc.coordinate.longitude)")
-                    }
-                }
+            MapView().tabItem {
+                Image(systemName: "mappin.and.ellipse")
+                Text("Map")
             }
-            GeometryReader { _ in
-                Text("Message: \(tracer.currentMessage)").padding()
+            ConfigView().tabItem {
+                Image(systemName: "gear")
+                Text("Setting")
             }
-            GeometryReader { _ in
-                TextEditor(text: $configText)
-            }
-            Spacer()
-            HStack {
-                Button(action: onConfigSave) {
-                    Image(systemName: "square.and.arrow.down.fill")
-                }
-                .buttonStyle(.borderedProminent)
-                Button(action: onConfigLoad) {
-                    Image(systemName: "square.and.arrow.up.fill")
-                }
-                .buttonStyle(.borderedProminent)
-            }
-            HStack {
-                Toggle(isOn: $tracer.isOnHighPrecision) {}
-                    .labelsHidden()
-                    .onChange(of: tracer.isOnHighPrecision, perform: onToggleHighPrecision)
-                Button(action: onActionExport) {
-                    Image(systemName: "square.and.arrow.up")
-                }
-                .buttonStyle(.borderedProminent)
-                Button(action: onActionRefresh) {
-                    Image(systemName: "gobackward")
-                }
-                .buttonStyle(.borderedProminent)
+            LogView().tabItem {
+                Image(systemName: "slowmo")
+                Text("logging")
             }
         }
-    }
-
-    func onConfigSave() {
-        config.save(content: configText)
-    }
-
-    func onConfigLoad() {
-        config.load()
-    }
-
-    func onToggleHighPrecision(equatable _: any Equatable) {
-        tracer.switchTracerMode(highPrecision: tracer.isOnHighPrecision)
-    }
-
-    func onActionExport() {
-        if let fileURL = tracer.getLogFileURL() {
-            let activityViewController = UIActivityViewController(activityItems: [fileURL], applicationActivities: nil)
-            UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true, completion: nil)
-        }
-    }
-
-    func onActionRefresh() {
-        tracer.startMonitoring()
-        tracer.stopedLocation = config.stopedLocation
     }
 }
 
