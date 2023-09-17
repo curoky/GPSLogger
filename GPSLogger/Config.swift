@@ -21,23 +21,25 @@ import CoreLocation
 import Foundation
 import SwiftUI
 
-class Config: NSObject, ObservableObject {
-    @Published var stopedLocation: [CLLocation] = []
+class Config: NSObject {
+    static let shared = Config()
+    var stopedLocation: [CLLocation] = []
+    var configContent: String = ""
 
     override init() {
         super.init()
-        load()
+        loadConfigFile()
     }
 
-    func load() {
+    func loadConfigFile() {
         if let configFile = getConfigFileURL() {
             if !FileManager.default.fileExists(atPath: configFile.path()) {
                 return
             }
             stopedLocation.removeAll()
             do {
-                let content = try String(contentsOf: configFile, encoding: .utf8)
-                let lines = content.components(separatedBy: .newlines)
+                configContent = try String(contentsOf: configFile, encoding: .utf8)
+                let lines = configContent.components(separatedBy: .newlines)
                 for line in lines {
                     let components = line.components(separatedBy: ",")
                     if components.count == 2, let x = Double(components[0]), let y = Double(components[1]) {
@@ -50,7 +52,7 @@ class Config: NSObject, ObservableObject {
         }
     }
 
-    func save(content: String) {
+    func saveAndReloadConfigFile(content: String) {
         if let configFile = getConfigFileURL() {
             if !FileManager.default.fileExists(atPath: configFile.path()) {
                 FileManager.default.createFile(atPath: configFile.path(), contents: nil)
@@ -58,6 +60,7 @@ class Config: NSObject, ObservableObject {
             do {
                 try content.write(to: configFile, atomically: true, encoding: .utf8)
                 print("Configuration saved to file: \(configFile.path)")
+                loadConfigFile()
             } catch {
                 print("Error saving configuration to file: \(error)")
             }
@@ -67,6 +70,13 @@ class Config: NSObject, ObservableObject {
     func getConfigFileURL() -> URL? {
         if let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
             return documentsDirectory.appendingPathComponent("config.txt")
+        }
+        return nil
+    }
+
+    func getGPSLogSaveURL() -> URL? {
+        if let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            return documentsDirectory.appendingPathComponent("gps_log.txt")
         }
         return nil
     }
