@@ -100,7 +100,7 @@ struct LocationStatusView: View {
         .padding(.trailing, -5)
         .onAppear {
             tracer.startMonitoring()
-            print("tracer.startMonitoring()")
+            LogManager.shared.addLogMessage("tracer.startMonitoring()")
         }
     }
 

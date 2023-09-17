@@ -47,7 +47,7 @@ class Config: NSObject {
                     }
                 }
             } catch {
-                print("Error reading configuration file: \(error)")
+                LogManager.shared.addLogMessage("Error reading configuration file: \(error)")
             }
         }
     }
@@ -59,10 +59,10 @@ class Config: NSObject {
             }
             do {
                 try content.write(to: configFile, atomically: true, encoding: .utf8)
-                print("Configuration saved to file: \(configFile.path)")
+                LogManager.shared.addLogMessage("Configuration saved to file: \(configFile.path)")
                 loadConfigFile()
             } catch {
-                print("Error saving configuration to file: \(error)")
+                LogManager.shared.addLogMessage("Error saving configuration to file: \(error)")
             }
         }
     }

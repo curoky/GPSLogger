@@ -17,7 +17,7 @@ struct LogView: View {
             ScrollView {
                 LazyVStack(alignment: .leading) {
                     ForEach(LogManager.shared.logMessages) { logMessage in
-                        Text("\(logMessage.timestamp): \(logMessage.message)")
+                        Text("\(logMessage.timestamp.ISO8601Format()):  \(logMessage.message)")
                     }
                 }
             }

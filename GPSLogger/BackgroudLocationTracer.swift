@@ -46,7 +46,7 @@ class BackgroudLocationTracer: NSObject, ObservableObject {
 
     func updateTracerMode(enable: Bool) {
         isOnHighPrecision = enable
-        print("updateTracerMode: \(isOnHighPrecision)")
+        LogManager.shared.addLogMessage("updateTracerMode: \(isOnHighPrecision)")
         if isOnHighPrecision {
             lastSwitchHighPrecisionTime = Date.now
             locationManager.stopMonitoringSignificantLocationChanges()
@@ -93,7 +93,7 @@ extension BackgroudLocationTracer: CLLocationManagerDelegate {
                 }
 
             } catch {
-                print("save json failed：\(error)")
+                LogManager.shared.addLogMessage("save json failed：\(error)")
             }
 
             isInStoppedPositon = false
@@ -125,6 +125,6 @@ extension BackgroudLocationTracer: CLLocationManagerDelegate {
     }
 
     func locationManager(_: CLLocationManager, didFailWithError error: Error) {
-        print(error)
+        LogManager.shared.addLogMessage("\(error)")
     }
 }
