@@ -29,7 +29,7 @@ struct LogView: View {
             ScrollView {
                 LazyVStack(alignment: .leading) {
                     ForEach(logMessages) { logMessage in
-                        Text("\(logMessage.timestamp.ISO8601Format()) \(logMessage.message)")
+                        Text("=> \(formatDate(date: logMessage.timestamp))\n \(logMessage.message)")
                     }
                 }
             }
@@ -38,6 +38,9 @@ struct LogView: View {
                 Image(systemName: "arrow.clockwise.circle")
             }
             .buttonStyle(.borderedProminent)
+        }
+        .onAppear {
+            onActionExport()
         }
 //        .padding()
     }
