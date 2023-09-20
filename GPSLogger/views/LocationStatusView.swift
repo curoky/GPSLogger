@@ -61,14 +61,29 @@ struct LocationStatusView: View {
 
             Section {
                 HStack {
-                    Text("updateTime:")
+                    Text("lastLocationTime:")
                     Spacer()
-                    Text(tracer.currentLocation.timestamp, format: .iso8601)
+                    Text(formatDate(date: tracer.currentLocation.timestamp))
                 }
                 HStack {
-                    Text("lastHighPrecTime:")
+                    Text("Uptime:")
                     Spacer()
-                    Text(tracer.lastSwitchHighPrecisionTime, format: .iso8601)
+                    Text(formatDate(date: tracer.initTS))
+                }
+//                HStack {
+//                    Text("UptimeDur:")
+//                    Spacer()
+//                    Text(formatTimeDifference(startDate: tracer.currentLocation.timestamp, endDate: Date.now))
+//                }
+//                HStack {
+//                    Text("lastHighPrecTime:")
+//                    Spacer()
+//                    Text(formatDate(date: tracer.lastSwitchToHighPrecisionTime))
+//                }
+                HStack {
+                    Text("lastHighPrecDur:")
+                    Spacer()
+                    Text(formatTimeDifference(startDate: tracer.lastSwitchToHighPrecisionTime, endDate: Date.now))
                 }
                 HStack {
                     Text("updatedCount:")

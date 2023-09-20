@@ -21,6 +21,7 @@
 		3BA4B88B2AAC988F00E86EF7 /* GPSLogger.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3BA4B8892AAC988F00E86EF7 /* GPSLogger.xcdatamodeld */; };
 		3BA4B8922AAC994900E86EF7 /* BackgroudLocationTracer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA4B8912AAC994900E86EF7 /* BackgroudLocationTracer.swift */; };
 		3BA4B8942AAC995000E86EF7 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA4B8932AAC995000E86EF7 /* Config.swift */; };
+		3BFEB4F32ABB529400FA3F62 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFEB4F22ABB529400FA3F62 /* DateUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		3BA4B8912AAC994900E86EF7 /* BackgroudLocationTracer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroudLocationTracer.swift; sourceTree = "<group>"; };
 		3BA4B8932AAC995000E86EF7 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		3BC2AF402AAE344400A9CBB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3BFEB4F22ABB529400FA3F62 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				3BA4B8932AAC995000E86EF7 /* Config.swift */,
 				3BA4B8912AAC994900E86EF7 /* BackgroudLocationTracer.swift */,
 				3B3D448E2AB6F670004F8C34 /* LogManager.swift */,
+				3BFEB4F22ABB529400FA3F62 /* DateUtils.swift */,
 				3BA4B8892AAC988F00E86EF7 /* GPSLogger.xcdatamodeld */,
 				3BA4B8842AAC988F00E86EF7 /* Preview Content */,
 			);
@@ -183,6 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BA4B8922AAC994900E86EF7 /* BackgroudLocationTracer.swift in Sources */,
+				3BFEB4F32ABB529400FA3F62 /* DateUtils.swift in Sources */,
 				3B3D448F2AB6F670004F8C34 /* LogManager.swift in Sources */,
 				3B4E399C2AB5860D003A57E9 /* LocationStatusView.swift in Sources */,
 				3BA4B88B2AAC988F00E86EF7 /* GPSLogger.xcdatamodeld in Sources */,

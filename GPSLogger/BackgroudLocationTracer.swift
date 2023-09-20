@@ -26,8 +26,10 @@ class BackgroudLocationTracer: NSObject, ObservableObject {
     var locationManager = CLLocationManager()
     @Published var currentLocation: CLLocation = .init(latitude: 0, longitude: 0) // kCLLocationCoordinate2DInvalid
     @Published var updatedCount: Int = 0
+    @Published var initTS: Date = .now
+    @Published var lastStartHighPrecisionTS: Date = .now
     @Published var isOnHighPrecision: Bool = true
-    @Published var lastSwitchHighPrecisionTime = Date.now
+    @Published var lastSwitchToHighPrecisionTime: Date = .now
     @Published var currentMessage: String = ""
     @Published var isInStoppedPositon: Bool = false
     @Published var beginLocation: CLLocation = .init(latitude: 0, longitude: 0)
@@ -48,7 +50,7 @@ class BackgroudLocationTracer: NSObject, ObservableObject {
         isOnHighPrecision = enable
         LogManager.shared.addLogMessage("updateTracerMode: \(isOnHighPrecision)")
         if isOnHighPrecision {
-            lastSwitchHighPrecisionTime = Date.now
+            lastSwitchToHighPrecisionTime = Date.now
             locationManager.stopMonitoringSignificantLocationChanges()
             locationManager.startUpdatingLocation()
         } else {
@@ -91,6 +93,7 @@ extension BackgroudLocationTracer: CLLocationManagerDelegate {
                     let fileHandle = try FileHandle(forWritingTo: logFileURL)
                     fileHandle.seekToEndOfFile()
                     fileHandle.write(jsonData)
+                    fileHandle.write("\n".data(using: .utf8)!)
                     fileHandle.closeFile()
                 }
 
@@ -103,7 +106,7 @@ extension BackgroudLocationTracer: CLLocationManagerDelegate {
                 for mp in Config.shared.stopedLocation {
                     if loc.distance(from: mp) < 50 {
                         isInStoppedPositon = true
-                        let diffComponents = Calendar.current.dateComponents([.minute], from: lastSwitchHighPrecisionTime, to: Date.now)
+                        let diffComponents = Calendar.current.dateComponents([.minute], from: lastSwitchToHighPrecisionTime, to: Date.now)
                         if diffComponents.minute! < 10 {
                         } else {
                             updateTracerMode(enable: false)
