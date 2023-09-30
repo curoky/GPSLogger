@@ -28,7 +28,7 @@ struct LocationStatusView: View {
                 HStack {
                     Text("Coordinate:")
                     Spacer()
-                    Text(text: String(format: "%.5f, %.5f", tracer.currentLocation.coordinate.latitude, tracer.currentLocation.coordinate.longitude))
+                    CopyableTextView(text: String(format: "%.5f, %.5f", tracer.currentLocation.coordinate.latitude, tracer.currentLocation.coordinate.longitude))
                 }
                 HStack {
                     Text("Altitude:")
@@ -38,7 +38,7 @@ struct LocationStatusView: View {
                 HStack {
                     Text("Speed:")
                     Spacer()
-                    Text(String(format: "%.fm/s, %.fkm/h", tracer.currentLocation.speed, tracer.currentLocation.speed*60*60/1000))
+                    Text(String(format: "%.fm/s, %.fkm/h", tracer.currentLocation.speed, tracer.currentLocation.speed * 60 * 60 / 1000))
                 }
                 HStack {
                     Text("Course:")
@@ -137,5 +137,16 @@ struct LocationStatusView: View {
 struct LocationStatusView_Previews: PreviewProvider {
     static var previews: some View {
         LocationStatusView()
+    }
+}
+
+struct CopyableTextView: View {
+    let text: String
+
+    var body: some View {
+        Text(text)
+            .onTapGesture {
+                UIPasteboard.general.string = text
+            }
     }
 }
