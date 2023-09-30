@@ -80,4 +80,13 @@ class Config: NSObject {
         }
         return nil
     }
+
+    func getICloudExportURL() -> URL? {
+        if let iCloudContainerURL = FileManager.default.url(forUbiquityContainerIdentifier: nil) {
+            return iCloudContainerURL.appendingPathComponent("gps_log2.txt")
+        } else {
+            LogManager.shared.addLogMessage("Can't find iCloud container, please check network.")
+        }
+        return nil
+    }
 }

@@ -100,6 +100,10 @@ struct LocationStatusView: View {
                         Image(systemName: "square.and.arrow.up")
                     }
                     .buttonStyle(.borderedProminent)
+                    // Button(action: onActionExportSync) {
+                    //     Image(systemName: "arrow.triangle.2.circlepath.circle")
+                    // }
+                    // .buttonStyle(.borderedProminent)
                 }
             }
             .padding(.leading, -5)
@@ -130,6 +134,20 @@ struct LocationStatusView: View {
         if let fileURL = Config.shared.getGPSLogSaveURL() {
             let activityViewController = UIActivityViewController(activityItems: [fileURL], applicationActivities: nil)
             UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true, completion: nil)
+        }
+    }
+
+    func onActionExportSync() {
+        // Copy the file to the iCloud directory
+        if let sourceURL = Config.shared.getGPSLogSaveURL() {
+            if let destinationURL = Config.shared.getICloudExportURL() {
+                do {
+                    try FileManager.default.copyItem(at: sourceURL, to: destinationURL)
+                    LogManager.shared.addLogMessage("File copied to iCloud directory.")
+                } catch {
+                    LogManager.shared.addLogMessage("Failed to copy file to iCloud directory: \(error.localizedDescription)")
+                }
+            }
         }
     }
 }
