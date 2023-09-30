@@ -22,7 +22,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            LocationStatusView().tabItem {
+            LocationView().tabItem {
                 Image(systemName: "location.circle")
                 Text("GPS")
             }

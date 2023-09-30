@@ -22,7 +22,7 @@ import CoreLocation
 import Foundation
 import SwiftUI
 
-class BackgroudLocationTracer: NSObject, ObservableObject {
+class LocationManager: NSObject, ObservableObject {
     var locationManager = CLLocationManager()
     @Published var currentLocation: CLLocation = .init(latitude: 0, longitude: 0) // kCLLocationCoordinate2DInvalid
     @Published var updatedCount: Int = 0
@@ -60,7 +60,7 @@ class BackgroudLocationTracer: NSObject, ObservableObject {
     }
 }
 
-extension BackgroudLocationTracer: CLLocationManagerDelegate {
+extension LocationManager: CLLocationManagerDelegate {
     func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         for loc in locations {
             if updatedCount > 1 {

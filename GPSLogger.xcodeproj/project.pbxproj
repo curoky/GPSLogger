@@ -10,7 +10,7 @@
 		3B3D448D2AB6F658004F8C34 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3D448C2AB6F658004F8C34 /* LogView.swift */; };
 		3B3D448F2AB6F670004F8C34 /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3D448E2AB6F670004F8C34 /* LogManager.swift */; };
 		3B4E399A2AB58601003A57E9 /* ConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4E39992AB58601003A57E9 /* ConfigView.swift */; };
-		3B4E399C2AB5860D003A57E9 /* LocationStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4E399B2AB5860D003A57E9 /* LocationStatusView.swift */; };
+		3B4E399C2AB5860D003A57E9 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4E399B2AB5860D003A57E9 /* LocationView.swift */; };
 		3B4E399E2AB5ABBE003A57E9 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4E399D2AB5ABBE003A57E9 /* MapView.swift */; };
 		3B6EDA452AAE192E00D22CCB /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = 3B6EDA442AAE192E00D22CCB /* Collections */; };
 		3BA4B87F2AAC988E00E86EF7 /* GPSLoggerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA4B87E2AAC988E00E86EF7 /* GPSLoggerApp.swift */; };
@@ -19,8 +19,8 @@
 		3BA4B8862AAC988F00E86EF7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BA4B8852AAC988F00E86EF7 /* Preview Assets.xcassets */; };
 		3BA4B8882AAC988F00E86EF7 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA4B8872AAC988F00E86EF7 /* Persistence.swift */; };
 		3BA4B88B2AAC988F00E86EF7 /* GPSLogger.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3BA4B8892AAC988F00E86EF7 /* GPSLogger.xcdatamodeld */; };
-		3BA4B8922AAC994900E86EF7 /* BackgroudLocationTracer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA4B8912AAC994900E86EF7 /* BackgroudLocationTracer.swift */; };
-		3BA4B8942AAC995000E86EF7 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA4B8932AAC995000E86EF7 /* Config.swift */; };
+		3BA4B8922AAC994900E86EF7 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA4B8912AAC994900E86EF7 /* LocationManager.swift */; };
+		3BA4B8942AAC995000E86EF7 /* ConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA4B8932AAC995000E86EF7 /* ConfigManager.swift */; };
 		3BFEB4F32ABB529400FA3F62 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFEB4F22ABB529400FA3F62 /* DateUtils.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +28,7 @@
 		3B3D448C2AB6F658004F8C34 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
 		3B3D448E2AB6F670004F8C34 /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
 		3B4E39992AB58601003A57E9 /* ConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigView.swift; sourceTree = "<group>"; };
-		3B4E399B2AB5860D003A57E9 /* LocationStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationStatusView.swift; sourceTree = "<group>"; };
+		3B4E399B2AB5860D003A57E9 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 		3B4E399D2AB5ABBE003A57E9 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		3BA4B87B2AAC988E00E86EF7 /* GPSLogger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPSLogger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BA4B87E2AAC988E00E86EF7 /* GPSLoggerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSLoggerApp.swift; sourceTree = "<group>"; };
@@ -37,8 +37,8 @@
 		3BA4B8852AAC988F00E86EF7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3BA4B8872AAC988F00E86EF7 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		3BA4B88A2AAC988F00E86EF7 /* GPSLogger.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GPSLogger.xcdatamodel; sourceTree = "<group>"; };
-		3BA4B8912AAC994900E86EF7 /* BackgroudLocationTracer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroudLocationTracer.swift; sourceTree = "<group>"; };
-		3BA4B8932AAC995000E86EF7 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		3BA4B8912AAC994900E86EF7 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		3BA4B8932AAC995000E86EF7 /* ConfigManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigManager.swift; sourceTree = "<group>"; };
 		3BC2AF402AAE344400A9CBB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3BFEB4F22ABB529400FA3F62 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,9 +58,9 @@
 		3B4E39972AB585B8003A57E9 /* views */ = {
 			isa = PBXGroup;
 			children = (
-				3B4E39992AB58601003A57E9 /* ConfigView.swift */,
-				3B4E399B2AB5860D003A57E9 /* LocationStatusView.swift */,
+				3B4E399B2AB5860D003A57E9 /* LocationView.swift */,
 				3B4E399D2AB5ABBE003A57E9 /* MapView.swift */,
+				3B4E39992AB58601003A57E9 /* ConfigView.swift */,
 				3B3D448C2AB6F658004F8C34 /* LogView.swift */,
 			);
 			path = views;
@@ -91,9 +91,9 @@
 				3BA4B8802AAC988E00E86EF7 /* ContentView.swift */,
 				3BA4B8822AAC988F00E86EF7 /* Assets.xcassets */,
 				3BA4B8872AAC988F00E86EF7 /* Persistence.swift */,
-				3BA4B8932AAC995000E86EF7 /* Config.swift */,
-				3BA4B8912AAC994900E86EF7 /* BackgroudLocationTracer.swift */,
 				3B3D448E2AB6F670004F8C34 /* LogManager.swift */,
+				3BA4B8932AAC995000E86EF7 /* ConfigManager.swift */,
+				3BA4B8912AAC994900E86EF7 /* LocationManager.swift */,
 				3BFEB4F22ABB529400FA3F62 /* DateUtils.swift */,
 				3BA4B8892AAC988F00E86EF7 /* GPSLogger.xcdatamodeld */,
 				3BA4B8842AAC988F00E86EF7 /* Preview Content */,
@@ -185,10 +185,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BA4B8922AAC994900E86EF7 /* BackgroudLocationTracer.swift in Sources */,
+				3BA4B8922AAC994900E86EF7 /* LocationManager.swift in Sources */,
 				3BFEB4F32ABB529400FA3F62 /* DateUtils.swift in Sources */,
 				3B3D448F2AB6F670004F8C34 /* LogManager.swift in Sources */,
-				3B4E399C2AB5860D003A57E9 /* LocationStatusView.swift in Sources */,
+				3B4E399C2AB5860D003A57E9 /* LocationView.swift in Sources */,
 				3BA4B88B2AAC988F00E86EF7 /* GPSLogger.xcdatamodeld in Sources */,
 				3B3D448D2AB6F658004F8C34 /* LogView.swift in Sources */,
 				3BA4B8882AAC988F00E86EF7 /* Persistence.swift in Sources */,
@@ -196,7 +196,7 @@
 				3BA4B87F2AAC988E00E86EF7 /* GPSLoggerApp.swift in Sources */,
 				3B4E399A2AB58601003A57E9 /* ConfigView.swift in Sources */,
 				3B4E399E2AB5ABBE003A57E9 /* MapView.swift in Sources */,
-				3BA4B8942AAC995000E86EF7 /* Config.swift in Sources */,
+				3BA4B8942AAC995000E86EF7 /* ConfigManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +338,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -375,6 +376,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -20,8 +20,8 @@
 import CoreLocation
 import SwiftUI
 
-struct LocationStatusView: View {
-    @StateObject private var tracer = BackgroudLocationTracer()
+struct LocationView: View {
+    @StateObject private var tracer = LocationManager()
 
     var body: some View {
         Form {
@@ -159,7 +159,7 @@ struct LocationStatusView: View {
 
 struct LocationStatusView_Previews: PreviewProvider {
     static var previews: some View {
-        LocationStatusView()
+        LocationView()
     }
 }
 
