@@ -26,34 +26,29 @@ struct LocationStatusView: View {
         Form {
             Section {
                 HStack {
-                    Text("Latitude:")
+                    Text("Coordinate:")
                     Spacer()
-                    Text(tracer.currentLocation.coordinate.latitude, format: .number)
+                    Text(text: String(format: "%.5f, %.5f", tracer.currentLocation.coordinate.latitude, tracer.currentLocation.coordinate.longitude))
                 }
                 HStack {
-                    Text("longitude:")
-                    Spacer()
-                    Text(tracer.currentLocation.coordinate.longitude, format: .number)
-                }
-                HStack {
-                    Text("altitude:")
+                    Text("Altitude:")
                     Spacer()
                     Text(tracer.currentLocation.altitude, format: .number)
                 }
                 HStack {
                     Text("Speed:")
                     Spacer()
-                    Text(String(format: "%.fm/s", tracer.currentLocation.speed))
+                    Text(String(format: "%.fm/s, %.fkm/h", tracer.currentLocation.speed, tracer.currentLocation.speed*60*60/1000))
                 }
                 HStack {
-                    Text("course:")
+                    Text("Course:")
                     Spacer()
                     Text(tracer.currentLocation.course, format: .number)
                 }
                 HStack {
-                    Text("cumulativeDistance:")
+                    Text("MovedDistance:")
                     Spacer()
-                    Text(String(format: "%.3fkm", tracer.cumulativeDistance / 1000))
+                    Text(String(format: "%.3fkm", tracer.movedDistance / 1000))
                 }
             }
             .padding(.leading, -5)
@@ -61,7 +56,7 @@ struct LocationStatusView: View {
 
             Section {
                 HStack {
-                    Text("lastLocationTime:")
+                    Text("LastLocationTime:")
                     Spacer()
                     Text(formatDate(date: tracer.currentLocation.timestamp))
                 }
@@ -81,12 +76,12 @@ struct LocationStatusView: View {
 //                    Text(formatDate(date: tracer.lastSwitchToHighPrecisionTime))
 //                }
                 HStack {
-                    Text("lastHighPrecDur:")
+                    Text("HighPrecDur:")
                     Spacer()
                     Text(formatTimeDifference(startDate: tracer.lastSwitchToHighPrecisionTime, endDate: Date.now))
                 }
                 HStack {
-                    Text("updatedCount:")
+                    Text("UpdatedCount:")
                     Spacer()
                     Text(tracer.updatedCount, format: .number)
                 }

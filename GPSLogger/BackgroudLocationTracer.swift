@@ -33,7 +33,7 @@ class BackgroudLocationTracer: NSObject, ObservableObject {
     @Published var currentMessage: String = ""
     @Published var isInStoppedPositon: Bool = false
     @Published var beginLocation: CLLocation = .init(latitude: 0, longitude: 0)
-    @Published var cumulativeDistance: Double = 0
+    @Published var movedDistance: Double = 0
 
     func startMonitoring() {
         locationManager.requestAlwaysAuthorization()
@@ -64,7 +64,7 @@ extension BackgroudLocationTracer: CLLocationManagerDelegate {
     func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         for loc in locations {
             if updatedCount > 1 {
-                cumulativeDistance += currentLocation.distance(from: loc)
+                movedDistance += currentLocation.distance(from: loc)
             }
             updatedCount += 1
             currentLocation = loc
