@@ -17,6 +17,7 @@
  * limitations under the License.
  */
 
+import CoreLocation
 import SwiftUI
 
 struct LocationStatusView: View {
@@ -110,11 +111,15 @@ struct LocationStatusView: View {
             .padding(.trailing, -5)
 
             Section {
-                ForEach(Config.shared.stopedLocation, id: \.self) { loc in
+                ForEach(ConfigManager.shared.config.positions, id: \.self) { loc in
                     HStack {
-                        Text(" \(tracer.currentLocation.coordinate.latitude):\(tracer.currentLocation.coordinate.longitude): ")
+                        Text(" \(loc.name)<\(tracer.currentLocation.coordinate.latitude), \(tracer.currentLocation.coordinate.longitude)>: ")
                         Spacer()
-                        Text(String(format: "%.fm", tracer.currentLocation.distance(from: loc)))
+                        Text(String(format: "%.3fkm",
+                                    tracer.currentLocation.distance(from: CLLocation(
+                                        latitude: loc.latitude,
+                                        longitude: loc.longitude
+                                    )) / 1000))
                     }
                 }
             }
@@ -131,7 +136,7 @@ struct LocationStatusView: View {
     }
 
     func onActionExport() {
-        if let fileURL = Config.shared.getGPSLogSaveURL() {
+        if let fileURL = ConfigManager.shared.getGPSLogSaveURL() {
             let activityViewController = UIActivityViewController(activityItems: [fileURL], applicationActivities: nil)
             UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true, completion: nil)
         }
@@ -139,8 +144,8 @@ struct LocationStatusView: View {
 
     func onActionExportSync() {
         // Copy the file to the iCloud directory
-        if let sourceURL = Config.shared.getGPSLogSaveURL() {
-            if let destinationURL = Config.shared.getICloudExportURL() {
+        if let sourceURL = ConfigManager.shared.getGPSLogSaveURL() {
+            if let destinationURL = ConfigManager.shared.getICloudExportURL() {
                 do {
                     try FileManager.default.copyItem(at: sourceURL, to: destinationURL)
                     LogManager.shared.addLogMessage("File copied to iCloud directory.")

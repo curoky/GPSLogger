@@ -85,7 +85,7 @@ extension BackgroudLocationTracer: CLLocationManagerDelegate {
                     currentMessage = jsonString
                 }
 
-                if let logFileURL = Config.shared.getGPSLogSaveURL() {
+                if let logFileURL = ConfigManager.shared.getGPSLogSaveURL() {
                     if !FileManager.default.fileExists(atPath: logFileURL.path()) {
                         FileManager.default.createFile(atPath: logFileURL.path(), contents: nil)
                     }
@@ -103,8 +103,8 @@ extension BackgroudLocationTracer: CLLocationManagerDelegate {
 
             isInStoppedPositon = false
             if isOnHighPrecision {
-                for mp in Config.shared.stopedLocation {
-                    if loc.distance(from: mp) < 50 {
+                for mp in ConfigManager.shared.config.positions {
+                    if loc.distance(from: CLLocation(latitude: mp.latitude, longitude: mp.longitude)) < 50 {
                         isInStoppedPositon = true
                         let diffComponents = Calendar.current.dateComponents([.minute], from: lastSwitchToHighPrecisionTime, to: Date.now)
                         if diffComponents.minute! < 10 {
@@ -115,8 +115,8 @@ extension BackgroudLocationTracer: CLLocationManagerDelegate {
                 }
             } else {
                 var inAnyOne = false
-                for mp in Config.shared.stopedLocation {
-                    if loc.distance(from: mp) < 100 {
+                for mp in ConfigManager.shared.config.positions {
+                    if loc.distance(from: CLLocation(latitude: mp.latitude, longitude: mp.longitude)) < 100 {
                         isInStoppedPositon = true
                         inAnyOne = true
                     }

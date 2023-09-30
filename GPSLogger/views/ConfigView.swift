@@ -43,13 +43,13 @@ struct ConfigView: View {
         }
         .padding()
         .onAppear {
-            configuration = Config.shared.configContent
+            configuration = ConfigManager.shared.configContent
         }
     }
 
     func parseConfiguration() {
         isLoading = true
-        Config.shared.saveAndReloadConfigFile(content: configuration)
+        ConfigManager.shared.saveAndReloadConfigFile(content: configuration)
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             isLoading = false

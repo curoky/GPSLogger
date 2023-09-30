@@ -21,12 +21,33 @@ import CoreLocation
 import Foundation
 import SwiftUI
 
-class Config: NSObject {
-    static let shared = Config()
-    var stopedLocation: [CLLocation] = []
+struct Position: Codable, Hashable {
+    let name: String
+    let latitude: Double
+    let longitude: Double
+}
+
+/*
+ {
+     "positions": [
+         { "name": "a", "latitude": 0.0, "longitude": 0.0},
+         { "name": "b", "latitude": 0.0, "longitude": 0.0},
+         { "name": "c", "latitude": 0.0, "longitude": 0.0}
+     ]
+ }
+  */
+
+struct Config: Codable {
+    let positions: [Position]
+}
+
+class ConfigManager: NSObject {
+    static let shared = ConfigManager()
+    var config: Config
     var configContent: String = ""
 
     override init() {
+        config = Config(positions: [])
         super.init()
         loadConfigFile()
     }
@@ -36,18 +57,11 @@ class Config: NSObject {
             if !FileManager.default.fileExists(atPath: configFile.path()) {
                 return
             }
-            stopedLocation.removeAll()
             do {
                 configContent = try String(contentsOf: configFile, encoding: .utf8)
-                let lines = configContent.components(separatedBy: .newlines)
-                for line in lines {
-                    let components = line.components(separatedBy: ",")
-                    if components.count == 2, let x = Double(components[0]), let y = Double(components[1]) {
-                        stopedLocation.append(CLLocation(latitude: x, longitude: y))
-                    }
-                }
+                config = try JSONDecoder().decode(Config.self, from: configContent.data(using: .utf8)!)
             } catch {
-                LogManager.shared.addLogMessage("Error reading configuration file: \(error)")
+                LogManager.shared.addLogMessage("Failed to load JSON: \(error.localizedDescription)")
             }
         }
     }
