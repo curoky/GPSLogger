@@ -113,13 +113,11 @@ struct LocationView: View {
             Section {
                 ForEach(ConfigManager.shared.config.positions, id: \.self) { loc in
                     HStack {
-                        Text(" \(loc.name)<\(tracer.currentLocation.coordinate.latitude), \(tracer.currentLocation.coordinate.longitude)>: ")
+                        Text("\(loc.name)<\(loc.latitude), \(loc.longitude)>: ")
                         Spacer()
                         Text(String(format: "%.3fkm",
-                                    tracer.currentLocation.distance(from: CLLocation(
-                                        latitude: loc.latitude,
-                                        longitude: loc.longitude
-                                    )) / 1000))
+                                    tracer.currentLocation.distance(from: loc.toCLLocation()
+                                    ) / 1000))
                     }
                 }
             }

@@ -25,6 +25,10 @@ struct Position: Codable, Hashable {
     let name: String
     let latitude: Double
     let longitude: Double
+
+    func toCLLocation() -> CLLocation {
+        CLLocation(latitude: latitude, longitude: longitude)
+    }
 }
 
 /*
@@ -43,11 +47,10 @@ struct Config: Codable {
 
 class ConfigManager: NSObject {
     static let shared = ConfigManager()
-    var config: Config
+    var config: Config = .init(positions: [])
     var configContent: String = ""
 
     override init() {
-        config = Config(positions: [])
         super.init()
         loadConfigFile()
     }

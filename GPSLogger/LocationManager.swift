@@ -103,8 +103,8 @@ extension LocationManager: CLLocationManagerDelegate {
 
             isInStoppedPositon = false
             if isOnHighPrecision {
-                for mp in ConfigManager.shared.config.positions {
-                    if loc.distance(from: CLLocation(latitude: mp.latitude, longitude: mp.longitude)) < 50 {
+                for p in ConfigManager.shared.config.positions {
+                    if loc.distance(from: p.toCLLocation()) < 50 {
                         isInStoppedPositon = true
                         let diffComponents = Calendar.current.dateComponents([.minute], from: lastSwitchToHighPrecisionTime, to: Date.now)
                         if diffComponents.minute! < 10 {
@@ -115,8 +115,8 @@ extension LocationManager: CLLocationManagerDelegate {
                 }
             } else {
                 var inAnyOne = false
-                for mp in ConfigManager.shared.config.positions {
-                    if loc.distance(from: CLLocation(latitude: mp.latitude, longitude: mp.longitude)) < 100 {
+                for p in ConfigManager.shared.config.positions {
+                    if loc.distance(from: p.toCLLocation()) < 100 {
                         isInStoppedPositon = true
                         inAnyOne = true
                     }
