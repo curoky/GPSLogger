@@ -31,9 +31,15 @@ class LocationManager: NSObject, ObservableObject {
     @Published var isOnHighPrecision: Bool = true
     @Published var lastSwitchToHighPrecisionTime: Date = .now
     @Published var currentMessage: String = ""
-    @Published var isInStoppedPositon: Bool = false
+    @Published var isInStoppedPosition: Bool = false
     @Published var beginLocation: CLLocation = .init(latitude: 0, longitude: 0)
     @Published var movedDistance: Double = 0
+
+    override init() {
+        super.init()
+        startMonitoring()
+        LogManager.shared.addLogMessage("tracer.startMonitoring()")
+    }
 
     func startMonitoring() {
         locationManager.requestAlwaysAuthorization()
@@ -101,12 +107,13 @@ extension LocationManager: CLLocationManagerDelegate {
                 LogManager.shared.addLogMessage("save json failed：\(error)")
             }
 
-            isInStoppedPositon = false
+            isInStoppedPosition = false
             if isOnHighPrecision {
                 for p in ConfigManager.shared.config.positions {
                     if loc.distance(from: p.toCLLocation()) < 50 {
-                        isInStoppedPositon = true
+                        isInStoppedPosition = true
                         let diffComponents = Calendar.current.dateComponents([.minute], from: lastSwitchToHighPrecisionTime, to: Date.now)
+                        LogManager.shared.addLogMessage("in stopped position in \(diffComponents.minute!) min")
                         if diffComponents.minute! < 10 {
                         } else {
                             updateTracerMode(enable: false)
@@ -117,7 +124,7 @@ extension LocationManager: CLLocationManagerDelegate {
                 var inAnyOne = false
                 for p in ConfigManager.shared.config.positions {
                     if loc.distance(from: p.toCLLocation()) < 100 {
-                        isInStoppedPositon = true
+                        isInStoppedPosition = true
                         inAnyOne = true
                     }
                 }

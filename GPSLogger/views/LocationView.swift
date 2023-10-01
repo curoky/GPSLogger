@@ -127,10 +127,7 @@ struct LocationView: View {
 //        .scrollDisabled(true)
         .padding(.leading, -5)
         .padding(.trailing, -5)
-        .onAppear {
-            tracer.startMonitoring()
-            LogManager.shared.addLogMessage("tracer.startMonitoring()")
-        }
+        .onAppear {}
     }
 
     func onActionExport() {

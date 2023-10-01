@@ -26,10 +26,10 @@ struct ContentView: View {
                 Image(systemName: "location.circle")
                 Text("GPS")
             }
-            MapView().tabItem {
-                Image(systemName: "mappin.and.ellipse")
-                Text("Map")
-            }
+//            MapView().tabItem {
+//                Image(systemName: "mappin.and.ellipse")
+//                Text("Map")
+//            }
             ConfigView().tabItem {
                 Image(systemName: "gear")
                 Text("Setting")
